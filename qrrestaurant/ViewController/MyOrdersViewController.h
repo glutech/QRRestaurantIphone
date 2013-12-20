@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-//@class MyOrdersViewController;
-//
-//@protocol MyOrdersViewControllerDelegate <NSObject>
-//
-//- (void) myOrdersViewControllerDidBack: (MyOrdersViewController *)controller;
-//
-//@end
+@class MyOrdersViewController;
 
-@interface MyOrdersViewController : UITableViewController
+@protocol MyOrdersViewControllerDelegate <NSObject>
 
-//@property (nonatomic, weak) id <MyOrdersViewControllerDelegate> delegate;
-//- (IBAction)back:(id)sender;
+- (void) myOrdersViewControllerDidBack: (MyOrdersViewController *)controller;
+
+@end
+
+@interface MyOrdersViewController : UIViewController
+
+@property (nonatomic, weak) id <MyOrdersViewControllerDelegate> delegate;
+- (IBAction)back:(id)sender;
 
 @end

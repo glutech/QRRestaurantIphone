@@ -7,17 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "Globle.h"
 
 @implementation AppDelegate
+{
+    NSString *deviceid;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    CGRect screecRect = [[UIScreen mainScreen] bounds];
-    [Globle shareInstance].globleWidth = screecRect.size.width;
-    [Globle shareInstance].globleHeight = screecRect.size.height-20;
-    [Globle shareInstance].globleAllHeight = screecRect.size.height;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     
     return YES;
 }
@@ -47,6 +46,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    deviceid = [[[[deviceToken description]
+                  stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                 stringByReplacingOccurrencesOfString:@">" withString:@""]
+                stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Failed to get token, error: %@", error);
 }
 
 // 禁止横屏

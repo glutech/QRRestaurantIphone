@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HostViewController.h"
+#import "MyOrdersViewController.h"
 
-@interface InitailViewController : UITableViewController
+@interface InitailViewController : UITableViewController <HostViewControllerDelegate, MyOrdersViewControllerDelegate>
+
+- (IBAction)viewMyOrders:(id)sender;
+- (IBAction)viewHistoryOrders:(id)sender;
 
 - (IBAction)scan:(id)sender;
 

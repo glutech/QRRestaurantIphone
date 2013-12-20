@@ -10,6 +10,10 @@
 #import "MenuListViewController.h"
 #import <ZXingWidgetController.h>
 #import <QRCodeReader.h>
+#import "HostViewController.h"
+#import "MyOrdersViewController.h"
+#import "ScanService.h"
+#import "RestaurantService.h"
 
 @interface InitailViewController () <ZXingDelegate>
 
@@ -29,9 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,42 +41,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"toMyOrders"]) {
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        MyOrdersViewController *myOrderViewController = [[navigationController viewControllers] objectAtIndex:0];
-//        myOrderViewController.delegate = self;
-//    }
-//}
+- (IBAction)viewMyOrders:(id)sender {
+    
+    MyOrdersViewController *myOrdersViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"myOrdersViewController"];
+    
+    myOrdersViewController.delegate = self;
+    
+    [self presentViewController:myOrdersViewController animated:YES completion:nil];
+}
 
-//#pragma mark - MyOrdersViewControllerDelegate
-//
-//- (void)myOrdersViewControllerDidBack:(MyOrdersViewController *)controller
-//{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
+- (IBAction)viewHistoryOrders:(id)sender {
+    MyOrdersViewController *myOrdersViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"myOrdersViewController"];
+    
+    myOrdersViewController.delegate = self;
+    
+    [self presentViewController:myOrdersViewController animated:YES completion:nil];
+}
 
 - (IBAction)scan:(id)sender {
-//    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
-//    
-//    UIImage *qrOverlyImage = [UIImage imageNamed:@"320x480_bgImg.png"];
-//    UIImageView *qrOverlayImageView = [[UIImageView alloc] initWithImage:qrOverlyImage];
-//    qrOverlayImageView.contentMode = UIViewContentModeScaleAspectFill;
-//    qrOverlayImageView.backgroundColor = [UIColor clearColor];
-//    
-//    NSMutableSet *readers = [[NSMutableSet alloc] init];
-//    QRCodeReader *qrcodeReader = [[QRCodeReader alloc] init];
-//    [readers addObject:qrcodeReader];
-//    [widController.overlayView addSubview:qrOverlayImageView];
-//    widController.readers = readers;
-//    [self presentViewController:widController animated:YES completion:^{}];
+//    ScanService *service = [[ScanService alloc] init];
+//    [service getScanResult:2];
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
     
-    NSLog(@"scan completed! 我跳~~~");
-    MenuListViewController *menuListViewController = [[MenuListViewController alloc] init];
-//    UITableViewController *aaa = [[UITableViewController alloc] init];
-//    [self.navigationController pushViewController:menuListViewController animated:YES];
-//    [self presentViewController:menuListViewController animated:YES completion:^{}];
+    UIImage *qrOverlyImage = [UIImage imageNamed:@"320x480_bgImg.png"];
+    UIImageView *qrOverlayImageView = [[UIImageView alloc] initWithImage:qrOverlyImage];
+    qrOverlayImageView.contentMode = UIViewContentModeScaleAspectFill;
+    qrOverlayImageView.backgroundColor = [UIColor clearColor];
+    
+    NSMutableSet *readers = [[NSMutableSet alloc] init];
+    QRCodeReader *qrcodeReader = [[QRCodeReader alloc] init];
+    [readers addObject:qrcodeReader];
+    [widController.overlayView addSubview:qrOverlayImageView];
+    widController.readers = readers;
+    [self presentViewController:widController animated:YES completion:^{}];
+    
 }
 
 #pragma mark - ZXingDelegate
@@ -87,12 +86,37 @@
 
 -(void)zxingController:(ZXingWidgetController *)controller didScanResult:(NSString *)result
 {
-    NSLog(@"scan completed! 我跳~~~");
-    MenuListViewController *menuListViewController = [[MenuListViewController alloc] init];
-    [self addChildViewController:menuListViewController];
-//    [self.navigationController pushViewController:menuListViewController animated:YES];
-//    [self presentViewController:menuListViewController animated:YES completion:^{}];
-    [self transitionFromViewController:self toViewController:[self.childViewControllers objectAtIndex:0] duration:4 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{} completion:^(BOOL finished){}];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    HostViewController *hostViewController = [storyboard instantiateViewControllerWithIdentifier:@"hostViewController"];
+    
+    hostViewController.hostViewdelegate = self;
+    
+    [controller presentViewController:hostViewController animated:YES completion:nil];
+}
+
+- (void)didBack:(HostViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)viewSelected:(HostViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - MyOrdersViewControllerDelegate
+- (void)myOrdersViewControllerDidBack:(MyOrdersViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"getRestList"]) {
+        RestaurantService *restaurantService = [[RestaurantService alloc] init];
+        [restaurantService getRestaurantList];
+    }
 }
 
 @end
