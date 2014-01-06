@@ -8,12 +8,17 @@
 
 #import "RestaurantListViewController.h"
 #import "RestaurantListCell.h"
+#import "ASIHTTPRequest.h"
+#import "Restaurant.h"
+#import "HostViewController.h"
 
 @interface RestaurantListViewController ()
 
 @end
 
 @implementation RestaurantListViewController
+
+@synthesize restList, restService, tempOrderService;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +38,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    restService = [[RestaurantService alloc] init];
+    tempOrderService = [[TempOrderService alloc] init];
+    ASIHTTPRequest *request = [restService getRestRequest];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,45 +54,42 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return [restList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RestaurantListCell *cell = (RestaurantListCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantListCell"];
     
-    cell.restaurantLabel.text = @"测试餐馆";
+//    cell.restaurantLabel.text = @"测试餐馆";
+    Restaurant *rest = [restList objectAtIndex:indexPath.row];
+    cell.restaurantLabel.text = rest.rest_name;
     
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([segue.identifier isEqualToString:@"toDishList"]) {
-        
-        HostViewController *hostViewController = segue.destinationViewController;
-        
-        hostViewController.hostViewdelegate = self;
-    }
+    HostViewController *hostViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hostViewController"];
+    
+    hostViewController.hostViewdelegate = self;
+    
+    [self presentViewController:hostViewController animated:YES completion:nil];
 }
 
 - (void)didBack:(HostViewController *)controller
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"不点了？" message:@"不点了意味着您放弃之前在本餐馆点的所有菜品并返回餐馆列表" delegate:self cancelButtonTitle:@"再看看" otherButtonTitles:@"嗯，不点了", nil];
-    alert.tag = 1;
-    [alert show];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    NSInteger count = [tempOrderService getItemCount];
+    if (count > 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"不点了？" message:@"不点了意味着您放弃之前在本餐馆点的所有菜品并返回餐馆列表" delegate:self cancelButtonTitle:@"再看看" otherButtonTitles:@"嗯，不点了", nil];
+        alert.tag = 1;
+        [alert show];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -99,6 +107,13 @@
 -(void)viewSelected:(HostViewController *)controller
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ASIHTTPRequest
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    restList = [restService getRestaurantList:request];
+    [self.tableView reloadData];
 }
 
 @end

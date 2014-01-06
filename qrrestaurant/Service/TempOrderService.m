@@ -28,4 +28,10 @@
     [dao deleteAll];
 }
 
+- (NSInteger)getItemCount
+{
+    TempOrderDao *dao = [[TempOrderDao alloc] init];
+    return [dao getItemCount];
+}
+
 @end

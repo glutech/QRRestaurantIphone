@@ -111,12 +111,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"getRestList"]) {
-        RestaurantService *restaurantService = [[RestaurantService alloc] init];
-        [restaurantService getRestaurantList];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"getRestList"]) {
+//        RestaurantService *restaurantService = [[RestaurantService alloc] init];
+//        [restaurantService getRestaurantList];
+//    }
+//}
 
 @end

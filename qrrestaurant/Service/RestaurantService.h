@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
+#import "ASIHTTPRequest.h"
 
 @interface RestaurantService : NSObject
 
@@ -17,6 +18,8 @@
 - (void)deleteAll;
 
 // 获取餐馆列表
-- (NSMutableArray *)getRestaurantList;
+- (NSMutableArray *)getRestaurantList:(ASIHTTPRequest *)request;
+
+- (ASIHTTPRequest *)getRestRequest;
 
 @end

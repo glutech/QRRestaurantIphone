@@ -30,4 +30,7 @@
 // 删除所有已点菜
 - (void)deleteAll;
 
+// 获取临时订单表中的记录数，用于判断用户退回到餐馆列表是是否需要弹出提示框
+- (NSInteger)getItemCount;
+
 @end

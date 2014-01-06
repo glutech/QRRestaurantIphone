@@ -38,24 +38,22 @@
     [dao deleteAll];
 }
 
-- (NSMutableArray *)getRestaurantList
+- (NSMutableArray *)getRestaurantList:(ASIHTTPRequest *)request
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    ParseJson *pj = [[ParseJson alloc] init];
+    NSMutableArray *result = [pj parseRestaurantList:[request responseData]];
     
+    return result;
+}
+
+- (ASIHTTPRequest *)getRestRequest
+{
     NSString *postURL = [NSString stringWithFormat:@"book/get_rest_list"];
     postURL = [HOST_NAME stringByAppendingString:postURL];
     
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:postURL]];
     
-    [request startSynchronous];
-    
-    NSError *error = request.error;
-    if (error == nil) {
-        ParseJson *pj = [[ParseJson alloc] init];
-        [pj parseRestaurantList:[request responseData]];
-    }
-    
-    return result;
+    return request;
 }
 
 @end

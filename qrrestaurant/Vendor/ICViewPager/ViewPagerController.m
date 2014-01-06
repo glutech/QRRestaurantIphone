@@ -143,7 +143,7 @@
     // +64 modified by jokinryou, make sure that contentView below tabView
     frame.origin.y = self.tabLocation ? self.tabHeight + 64 : 0.0;
     frame.size.width = self.view.bounds.size.width;
-    frame.size.height = self.view.frame.size.height - self.tabHeight;
+    frame.size.height = self.view.frame.size.height - self.tabHeight - 64;
     _contentView.frame = frame;
 }
 

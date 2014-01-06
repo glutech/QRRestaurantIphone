@@ -91,9 +91,7 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
-    ContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
-    
-    cvc.type = [NSString stringWithFormat:@"Content View #%i", index];
+    ContentViewController *cvc = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
     
     cvc.delegate = self;
     
@@ -144,14 +142,13 @@
 }
 
 - (IBAction)selected:(id)sender {
-//    [self.hostViewdelegate viewSelected:self];
     [self presentViewController:orderedDishesViewController animated:YES completion:nil];
 }
 
 - (void)contentViewControllerDelegateDidSelect:(Dish *)dish
 {
-    TempOrderDao *tempOrderDao = [[TempOrderDao alloc] init];
-    [tempOrderDao insert:dish];
+    TempOrderService *tempOrderService = [[TempOrderService alloc] init];
+    [tempOrderService insert:dish];
 }
 
 - (void)orderedDishesViewControllerDidBack:(OrderedDishesViewController *)controller

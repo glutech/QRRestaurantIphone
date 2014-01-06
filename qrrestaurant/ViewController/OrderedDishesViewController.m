@@ -80,7 +80,25 @@
 
 - (IBAction)submit:(id)sender {
 //    [self.delegate orderedDishesViewControllerDidSubmit:self];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"预订单已提交，请到达餐馆后扫描桌面上的二维码进行关联" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确认提交菜单？" delegate:self cancelButtonTitle:@"再点两个菜" otherButtonTitles:@"是的" , nil];
+    [alert setTag:1];
     [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *str = [NSString stringWithFormat:@"%@", [alertView buttonTitleAtIndex:buttonIndex]];
+    if ([str isEqualToString:@"是的"]) {
+        if (alertView.tag == 1) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"预订单已提交，请到达餐馆后扫描桌面上的二维码进行关联" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alert setTag:2];
+            [alert show];
+        }
+    } else if ([str isEqualToString:@"好的"]) {
+        if (alertView.tag == 2) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+}
+
 @end

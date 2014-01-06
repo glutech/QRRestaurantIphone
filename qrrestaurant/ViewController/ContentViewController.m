@@ -2,30 +2,27 @@
 //  ContentViewController.m
 //  qrrestaurant
 //
-//  Created by Jokinryou Tsui on 12/11/13.
+//  Created by Jokinryou Tsui on 12/26/13.
 //  Copyright (c) 2013 Boke Technology co., ltd. All rights reserved.
 //
 
 #import "ContentViewController.h"
-#import "DishItemCell.h"
 #import "DishDetailsViewController.h"
 #import "UIViewController+CWPopup.h"
 #import "UIGlossyButton.h"
 #import "UIView+LayerEffects.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ContentViewController ()
-
-@end
-
-@implementation ContentViewController
-{
-    NSMutableArray *dishes;
+@interface ContentViewController () <UITableViewDataSource, UITableViewDelegate> {
     int addPrice;
     int allPrice;
 }
 
-@synthesize table, delegate;
+@end
+
+@implementation ContentViewController
+
+@synthesize mainTable, dishes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
     
     dishes = [NSMutableArray arrayWithCapacity:20];
     
@@ -67,7 +64,59 @@
     
     [dishes addObject:dish];
     
+    dish = [[Dish alloc] init];
+    dish.dishId = 4;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
+    dish = [[Dish alloc] init];
+    dish.dishId = 5;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
+    dish = [[Dish alloc] init];
+    dish.dishId = 6;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
+    dish = [[Dish alloc] init];
+    dish.dishId = 7;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
+    dish = [[Dish alloc] init];
+    dish.dishId = 8;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
+    dish = [[Dish alloc] init];
+    dish.dishId = 9;
+    dish.dishName = @"葱烧海参";
+    dish.dishPrice = 20.0;
+    dish.dishImagePath = @"item3";
+    
+    [dishes addObject:dish];
+    
     self.useBlurForPopup = YES;
+    
+    [mainTable setDelegate:self];
+    [mainTable setDataSource:self];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -78,16 +127,20 @@
     return [dishes count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 74;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = [indexPath section];
     
-    static NSString *GroupedTableIdentifier = @"cell";
-    DishItemCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             GroupedTableIdentifier];
+    static NSString *GroupedTableIdentifier = @"DishItemCell";
+    DishItemCell *cell = (DishItemCell *)[tableView dequeueReusableCellWithIdentifier:
+                          GroupedTableIdentifier];
     if (cell == nil) {
-        cell = [[DishItemCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:GroupedTableIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DishItemCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     Dish *d = [dishes objectAtIndex:indexPath.row];
@@ -98,6 +151,7 @@
     
     return cell;
 }
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"";
@@ -123,7 +177,8 @@
     if (self.popupViewController != nil) {
         [self dismissPopupViewControllerAnimated:YES completion:^{}];
     }
-    [self.table reloadData];
+    
+    [mainTable reloadData];
 }
 
 #pragma mark - gesture recognizer delegate functions
@@ -150,10 +205,10 @@
 //加入购物车 步骤1
 - (void)addToShopCar:(DishItemCell *)cell{
     //得到产品信息
-//    UITableViewCell *cell = (UITableViewCell *)[bt superview];
-//    NSIndexPath *indexPath = [mainTable indexPathForCell:cell];
-//    NSDictionary *dic = [dataList objectAtIndex:indexPath.row];
-//    addPrice = [[dic valueForKey:@"price"]intValue];
+    //    UITableViewCell *cell = (UITableViewCell *)[bt superview];
+    //    NSIndexPath *indexPath = [mainTable indexPathForCell:cell];
+    //    NSDictionary *dic = [dataList objectAtIndex:indexPath.row];
+    //    addPrice = [[dic valueForKey:@"price"]intValue];
     
     UIButton *shopCarBt = (UIButton*)[self.view viewWithTag:44];
     
@@ -170,6 +225,7 @@
     //路径曲线
     UIBezierPath *movePath = [UIBezierPath bezierPath];
     [movePath moveToPoint:transitionLayer.position];
+//    CGPoint toPoint = CGPointMake(shopCarBt.center.x, shopCarBt.center.y + 60);
     CGPoint toPoint = CGPointMake(shopCarBt.center.x + 420, shopCarBt.center.y + 40);
     [movePath addQuadCurveToPoint:toPoint
                      controlPoint:CGPointMake(shopCarBt.center.x,transitionLayer.position.y-120)];
@@ -194,9 +250,9 @@
 //加入购物车 步骤2
 - (void)addShopFinished:(CALayer*)transitionLayer{
     
-    [table reloadData];
+    [mainTable reloadData];
     transitionLayer.opacity = 0;
-    UIButton *shopCarBt = (UIButton*)[self.view viewWithTag:55];
+    UIButton *shopCarBt = (UIButton*)[self.view viewWithTag:755];
     if (shopCarBt.hidden) {
         NSString *str = [NSString stringWithFormat:@"￥%i",addPrice];
         [shopCarBt setTitle:str forState:UIControlStateNormal];
@@ -208,7 +264,7 @@
         [shopCarBt setTitle:str forState:UIControlStateNormal];
         
         //加入购物车动画效果
-        UILabel *addLabel = (UILabel*)[self.view viewWithTag:66];
+        UILabel *addLabel = (UILabel*)[self.view viewWithTag:766];
         [addLabel setText:[NSString stringWithFormat:@"+%i",addPrice]];
         
         CALayer *transitionLayer1 = [[CALayer alloc] init];
@@ -244,4 +300,5 @@
         [transitionLayer1 addAnimation:group forKey:@"opacity"];
     }
 }
+
 @end

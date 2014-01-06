@@ -2,13 +2,14 @@
 //  ContentViewController.h
 //  qrrestaurant
 //
-//  Created by Jokinryou Tsui on 12/11/13.
+//  Created by Jokinryou Tsui on 12/26/13.
 //  Copyright (c) 2013 Boke Technology co., ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "DishDetailsViewController.h"
 #import "Dish.h"
+#import "DishItemCell.h"
 
 @class ContentViewController;
 
@@ -18,13 +19,16 @@
 
 @end
 
-@interface ContentViewController : UIViewController <UIGestureRecognizerDelegate, DishDetailsViewControllerDelegate>
+@interface ContentViewController : UIViewController <UIGestureRecognizerDelegate, DishDetailsViewControllerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) id <ContentViewControllerDelegate> delegate;
 
-@property NSString *type;
+@property (weak, nonatomic) IBOutlet UITableView *mainTable;
 
-@property (weak, nonatomic) IBOutlet UITableView *table;
+@property NSString *type;
+@property NSMutableArray *dishes;
+
+//@property (weak, nonatomic) IBOutlet UITableView *table;
 
 - (IBAction)viewDishDetails:(id)sender;
 

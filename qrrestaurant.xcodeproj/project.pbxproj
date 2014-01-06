@@ -73,6 +73,10 @@
 		74D8998718641E970066B6E3 /* UIGlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8998418641E970066B6E3 /* UIGlossyButton.m */; };
 		74D8998818641E970066B6E3 /* UIView+LayerEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8998618641E970066B6E3 /* UIView+LayerEffects.m */; };
 		74D8998A186424700066B6E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D89989186424700066B6E3 /* QuartzCore.framework */; };
+		74E07DE0186C1DBB00C6D157 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E07DDE186C1DBB00C6D157 /* TestViewController.m */; };
+		74E07DE1186C1DBB00C6D157 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E07DDF186C1DBB00C6D157 /* TestViewController.xib */; };
+		74E07DE5186C228E00C6D157 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E07DE3186C228E00C6D157 /* ContentViewController.m */; };
+		74E07DE6186C228E00C6D157 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E07DE4186C228E00C6D157 /* ContentViewController.xib */; };
 		74ECDCA41862DC0D006C05A8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCA31862DC0D006C05A8 /* Restaurant.m */; };
 		74ECDCA71862DCD4006C05A8 /* RestaurantDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCA61862DCD4006C05A8 /* RestaurantDao.m */; };
 		74ECDCAA1862DD68006C05A8 /* DishDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCA91862DD68006C05A8 /* DishDao.m */; };
@@ -85,6 +89,7 @@
 		74EDD0CF1844513F007951EE /* red_line_and_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EDD0CC1844513F007951EE /* red_line_and_shadow.png */; };
 		74EDD0D01844513F007951EE /* top_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EDD0CD1844513F007951EE /* top_background.png */; };
 		74EDD0D11844513F007951EE /* top_channelbutton_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EDD0CE1844513F007951EE /* top_channelbutton_shadow.png */; };
+		74EF5B9D186D1AB300AE57C8 /* DishItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74EF5B9C186D1AB300AE57C8 /* DishItemCell.xib */; };
 		74F4AF3E1851AE8B0028E6D4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F4AF3D1851AE8B0028E6D4 /* AVFoundation.framework */; };
 		74F4AF401851AE910028E6D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F4AF3F1851AE910028E6D4 /* AudioToolbox.framework */; };
 		74F4AF421851AE970028E6D4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F4AF411851AE970028E6D4 /* CoreVideo.framework */; };
@@ -96,9 +101,12 @@
 		74F4AF4D1851B3CD0028E6D4 /* 320x480_bgImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F4AF4C1851B3CD0028E6D4 /* 320x480_bgImg.png */; };
 		74F627FA1859A0890058F065 /* RestaurantListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F627F91859A0890058F065 /* RestaurantListViewController.m */; };
 		74F627FE1859A0DA0058F065 /* RestaurantListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F627FD1859A0DA0058F065 /* RestaurantListCell.m */; };
+		74F890FA187A7CC70062CB47 /* cart_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F890F6187A7CC70062CB47 /* cart_empty.png */; };
+		74F890FB187A7CC70062CB47 /* cart_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F890F7187A7CC70062CB47 /* cart_empty@2x.png */; };
+		74F890FC187A7CC70062CB47 /* cart_full_show.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F890F8187A7CC70062CB47 /* cart_full_show.png */; };
+		74F890FD187A7CC70062CB47 /* cart_full_show@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F890F9187A7CC70062CB47 /* cart_full_show@2x.png */; };
 		74FB92CE1858362A00198CEB /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92CD1858362A00198CEB /* ViewPagerController.m */; };
 		74FB92D1185836CE00198CEB /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92D0185836CE00198CEB /* HostViewController.m */; };
-		74FB92DA1858491200198CEB /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92D91858491200198CEB /* ContentViewController.m */; };
 		74FB92DE18584E1300198CEB /* DishItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92DD18584E1300198CEB /* DishItemCell.m */; };
 		74FB92E11858598100198CEB /* DishDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92E01858598100198CEB /* DishDetailsViewController.m */; };
 		74FB92E518585E3C00198CEB /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FB92E418585E3C00198CEB /* UIViewController+CWPopup.m */; };
@@ -253,6 +261,12 @@
 		74D8998518641E970066B6E3 /* UIView+LayerEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayerEffects.h"; sourceTree = "<group>"; };
 		74D8998618641E970066B6E3 /* UIView+LayerEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayerEffects.m"; sourceTree = "<group>"; };
 		74D89989186424700066B6E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		74E07DDD186C1DBB00C6D157 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		74E07DDE186C1DBB00C6D157 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		74E07DDF186C1DBB00C6D157 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		74E07DE2186C228E00C6D157 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		74E07DE3186C228E00C6D157 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		74E07DE4186C228E00C6D157 /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		74ECDCA21862DC0D006C05A8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		74ECDCA31862DC0D006C05A8 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		74ECDCA51862DCD4006C05A8 /* RestaurantDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDao.h; sourceTree = "<group>"; };
@@ -274,6 +288,7 @@
 		74EDD0CC1844513F007951EE /* red_line_and_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_line_and_shadow.png; sourceTree = "<group>"; };
 		74EDD0CD1844513F007951EE /* top_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_background.png; sourceTree = "<group>"; };
 		74EDD0CE1844513F007951EE /* top_channelbutton_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_channelbutton_shadow.png; sourceTree = "<group>"; };
+		74EF5B9C186D1AB300AE57C8 /* DishItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishItemCell.xib; sourceTree = "<group>"; };
 		74F4AF27185183D20028E6D4 /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = zxing/iphone/ZXingWidget/ZXingWidget.xcodeproj; sourceTree = SOURCE_ROOT; };
 		74F4AF3D1851AE8B0028E6D4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		74F4AF3F1851AE910028E6D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -287,12 +302,14 @@
 		74F627F91859A0890058F065 /* RestaurantListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantListViewController.m; sourceTree = "<group>"; };
 		74F627FC1859A0DA0058F065 /* RestaurantListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantListCell.h; sourceTree = "<group>"; };
 		74F627FD1859A0DA0058F065 /* RestaurantListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantListCell.m; sourceTree = "<group>"; };
+		74F890F6187A7CC70062CB47 /* cart_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart_empty.png; sourceTree = "<group>"; };
+		74F890F7187A7CC70062CB47 /* cart_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_empty@2x.png"; sourceTree = "<group>"; };
+		74F890F8187A7CC70062CB47 /* cart_full_show.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart_full_show.png; sourceTree = "<group>"; };
+		74F890F9187A7CC70062CB47 /* cart_full_show@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart_full_show@2x.png"; sourceTree = "<group>"; };
 		74FB92CC1858362A00198CEB /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
 		74FB92CD1858362A00198CEB /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
 		74FB92CF185836CE00198CEB /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		74FB92D0185836CE00198CEB /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
-		74FB92D81858491200198CEB /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
-		74FB92D91858491200198CEB /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		74FB92DC18584E1300198CEB /* DishItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishItemCell.h; sourceTree = "<group>"; };
 		74FB92DD18584E1300198CEB /* DishItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishItemCell.m; sourceTree = "<group>"; };
 		74FB92DF1858598100198CEB /* DishDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishDetailsViewController.h; sourceTree = "<group>"; };
@@ -561,6 +578,10 @@
 		743FEA9B18408AF300F3162A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				74F890F6187A7CC70062CB47 /* cart_empty.png */,
+				74F890F7187A7CC70062CB47 /* cart_empty@2x.png */,
+				74F890F8187A7CC70062CB47 /* cart_full_show.png */,
+				74F890F9187A7CC70062CB47 /* cart_full_show@2x.png */,
 				74F4AF4C1851B3CD0028E6D4 /* 320x480_bgImg.png */,
 				74C1BB3818473E96009E44A2 /* item3.png */,
 				74C1BB3418473E21009E44A2 /* item1.png */,
@@ -585,8 +606,6 @@
 				74EDD0CA18445106007951EE /* MenuListViewController.m */,
 				74FB92CF185836CE00198CEB /* HostViewController.h */,
 				74FB92D0185836CE00198CEB /* HostViewController.m */,
-				74FB92D81858491200198CEB /* ContentViewController.h */,
-				74FB92D91858491200198CEB /* ContentViewController.m */,
 				74FB92DF1858598100198CEB /* DishDetailsViewController.h */,
 				74FB92E01858598100198CEB /* DishDetailsViewController.m */,
 				74FB92EA185863FE00198CEB /* DishDetailsViewController.xib */,
@@ -598,6 +617,12 @@
 				74024FCE1861823900CA8C07 /* LoginViewController.m */,
 				74024FD11861832E00CA8C07 /* RegisterViewController.h */,
 				74024FD21861832E00CA8C07 /* RegisterViewController.m */,
+				74E07DDD186C1DBB00C6D157 /* TestViewController.h */,
+				74E07DDE186C1DBB00C6D157 /* TestViewController.m */,
+				74E07DDF186C1DBB00C6D157 /* TestViewController.xib */,
+				74E07DE2186C228E00C6D157 /* ContentViewController.h */,
+				74E07DE3186C228E00C6D157 /* ContentViewController.m */,
+				74E07DE4186C228E00C6D157 /* ContentViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -704,6 +729,7 @@
 				74F627FD1859A0DA0058F065 /* RestaurantListCell.m */,
 				7448A240185AD03400764FFE /* OrderedDishCell.h */,
 				7448A241185AD03400764FFE /* OrderedDishCell.m */,
+				74EF5B9C186D1AB300AE57C8 /* DishItemCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -825,13 +851,20 @@
 				743FEA671840480B00F3162A /* InfoPlist.strings in Resources */,
 				74C1BB3518473E21009E44A2 /* item1.png in Resources */,
 				74EDD0D11844513F007951EE /* top_channelbutton_shadow.png in Resources */,
+				74E07DE6186C228E00C6D157 /* ContentViewController.xib in Resources */,
+				74EF5B9D186D1AB300AE57C8 /* DishItemCell.xib in Resources */,
 				743F79B41862916200082F46 /* README-GHUnit in Resources */,
+				74E07DE1186C1DBB00C6D157 /* TestViewController.xib in Resources */,
 				743FEAA918408D9300F3162A /* Gestures@2x.png in Resources */,
+				74F890FB187A7CC70062CB47 /* cart_empty@2x.png in Resources */,
 				74C1BB2818471606009E44A2 /* icon.png in Resources */,
+				74F890FD187A7CC70062CB47 /* cart_full_show@2x.png in Resources */,
 				74F4AF4D1851B3CD0028E6D4 /* 320x480_bgImg.png in Resources */,
 				74C1BB3718473E5A009E44A2 /* item2.png in Resources */,
+				74F890FC187A7CC70062CB47 /* cart_full_show.png in Resources */,
 				74EDD0D01844513F007951EE /* top_background.png in Resources */,
 				743FEA701840480B00F3162A /* Main.storyboard in Resources */,
+				74F890FA187A7CC70062CB47 /* cart_empty.png in Resources */,
 				74FB92EB185863FE00198CEB /* DishDetailsViewController.xib in Resources */,
 				74C1BB3918473E96009E44A2 /* item3.png in Resources */,
 				74EDD0CF1844513F007951EE /* red_line_and_shadow.png in Resources */,
@@ -888,8 +921,8 @@
 				743F79A41862916200082F46 /* ASIInputStream.m in Sources */,
 				74FB92D1185836CE00198CEB /* HostViewController.m in Sources */,
 				743F79A11862916200082F46 /* ASIDownloadCache.m in Sources */,
+				74E07DE0186C1DBB00C6D157 /* TestViewController.m in Sources */,
 				743FEAB01840975300F3162A /* MyOrdersViewController.m in Sources */,
-				74FB92DA1858491200198CEB /* ContentViewController.m in Sources */,
 				74024FD31861832E00CA8C07 /* RegisterViewController.m in Sources */,
 				743F79A61862916200082F46 /* ASIWebPageRequest.m in Sources */,
 				743F79A31862916200082F46 /* ASIHTTPRequest.m in Sources */,
@@ -901,6 +934,7 @@
 				74ECDCB31862FB1F006C05A8 /* DishService.m in Sources */,
 				743F79A71862916200082F46 /* ASICloudFilesCDNRequest.m in Sources */,
 				743F79AA1862916200082F46 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				74E07DE5186C228E00C6D157 /* ContentViewController.m in Sources */,
 				743F79A01862916200082F46 /* ASIDataDecompressor.m in Sources */,
 				74D8998818641E970066B6E3 /* UIView+LayerEffects.m in Sources */,
 				7448A24B185AE1E300764FFE /* TempOrderService.m in Sources */,

@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HostViewController.h"
+#import "RestaurantService.h"
+#import "TempOrderService.h"
 
 @interface RestaurantListViewController : UITableViewController <HostViewControllerDelegate>
+
+@property (nonatomic, strong) NSMutableArray *restList;
+@property (nonatomic, strong) RestaurantService *restService;
+@property (nonatomic, strong) TempOrderService *tempOrderService;
 
 @end

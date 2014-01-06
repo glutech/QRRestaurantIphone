@@ -233,4 +233,28 @@
     sqlite3_close(db);
 }
 
+- (NSInteger)getItemCount
+{
+    NSString *path = [self applicationDocumentsDirectoryFile];
+    NSInteger count = 0;
+    
+    if (sqlite3_open([path UTF8String], &db) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(NO, @"open db failed....");
+    } else {
+        NSString *sql = @"SELECT COUNT(dishId) FROM tempOrder";
+        sqlite3_stmt *statement;
+        
+        if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                count = (int)sqlite3_column_int(statement, 0);
+            }
+        }
+        
+        sqlite3_finalize(statement);
+        sqlite3_close(db);
+    }
+    return count;
+}
+
 @end

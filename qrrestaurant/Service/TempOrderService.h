@@ -15,5 +15,6 @@
 - (int)insert:(Dish *)dish;
 - (NSMutableArray *)findAll;
 - (void)deleteAll;
+- (NSInteger)getItemCount;
 
 @end
