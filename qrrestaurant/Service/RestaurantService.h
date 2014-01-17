@@ -22,4 +22,17 @@
 
 - (ASIHTTPRequest *)getRestRequest;
 
+- (ASIHTTPRequest *)getDishesRequest:(NSInteger *)rest_id;
+
+- (void)saveDishesAndCatList:(ASIHTTPRequest *)request;
+
+// 获取推荐菜品
+- (NSMutableArray *)getRecommendDishes;
+
+// 获取点菜排行
+- (NSMutableArray *)getDishesByCount;
+
+// 获取全部菜品
+- (NSMutableArray *)getAllDishes;
+
 @end

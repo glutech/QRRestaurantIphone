@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Dish.h"
 
 @class DishDetailsViewController;
 
@@ -21,6 +22,8 @@
 @property (nonatomic, weak) id <DishDetailsViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *dishDetailsScrollView;
+
+@property (nonatomic) int dishId;
 
 - (IBAction)go:(id)sender;
 

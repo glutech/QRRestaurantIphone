@@ -11,6 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "Restaurant.h"
 #import "HostViewController.h"
+#import "DishService.h"
 
 @interface RestaurantListViewController ()
 
@@ -33,12 +34,6 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     restService = [[RestaurantService alloc] init];
     tempOrderService = [[TempOrderService alloc] init];
     ASIHTTPRequest *request = [restService getRestRequest];
@@ -64,7 +59,6 @@
 {
     RestaurantListCell *cell = (RestaurantListCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantListCell"];
     
-//    cell.restaurantLabel.text = @"测试餐馆";
     Restaurant *rest = [restList objectAtIndex:indexPath.row];
     cell.restaurantLabel.text = rest.rest_name;
     
@@ -76,6 +70,11 @@
     HostViewController *hostViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hostViewController"];
     
     hostViewController.hostViewdelegate = self;
+    
+    Restaurant *rest = [restList objectAtIndex:indexPath.row];
+    hostViewController.rest_id = rest.rest_id;
+    hostViewController.rest_name = rest.rest_name;
+    hostViewController.isFromScanView = FALSE;
     
     [self presentViewController:hostViewController animated:YES completion:nil];
 }
@@ -89,6 +88,8 @@
         [alert show];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
+        DishService *dService = [[DishService alloc] init];
+        [dService deleteAll];
     }
 }
 
@@ -99,6 +100,8 @@
         if (alertView.tag == 1) {
             TempOrderDao *tempOrderDao = [[TempOrderDao alloc] init];
             [tempOrderDao deleteAll];
+            DishService *dService = [[DishService alloc] init];
+            [dService deleteAll];
         }
         [self dismissViewControllerAnimated:YES completion:nil];
     }

@@ -12,17 +12,27 @@
 #import "UIGlossyButton.h"
 #import "UIView+LayerEffects.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ASIHTTPRequest.h"
+#import "DishService.h"
+#import "ParseJson.h"
+#import "CategoryService.h"
+#import "DishCategory.h"
+#import "MyTapGesture.h"
+#import "UIImageView+OnlineImage.h"
 
 @interface ContentViewController () <UITableViewDataSource, UITableViewDelegate> {
     int addPrice;
     int allPrice;
+    NSArray *_categoryList;
+    NSMutableArray *_catTitleList;
+    NSDictionary *_cat_dishes;
 }
 
 @end
 
 @implementation ContentViewController
 
-@synthesize mainTable, dishes;
+@synthesize mainTable, dishes, type, rest_id, restService;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,79 +48,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    dishes = [NSMutableArray arrayWithCapacity:20];
-    
-    Dish *dish = [[Dish alloc] init];
-    dish.dishId = 1;
-    dish.dishName = @"番茄鸡蛋";
-    dish.dishPrice = 10.0;
-    dish.dishImagePath = @"item1";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 2;
-    dish.dishName = @"爆炒猪肝";
-    dish.dishPrice = 15.0;
-    dish.dishImagePath = @"item2";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 3;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 4;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 5;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 6;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 7;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 8;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
-    
-    dish = [[Dish alloc] init];
-    dish.dishId = 9;
-    dish.dishName = @"葱烧海参";
-    dish.dishPrice = 20.0;
-    dish.dishImagePath = @"item3";
-    
-    [dishes addObject:dish];
+    // 发出http请求，根据rest_id获得菜品
+    restService = [[RestaurantService alloc] init];
+    ASIHTTPRequest *request = [restService getDishesRequest:rest_id];
+    [request setDelegate:self];
+    [request startAsynchronous];
     
     self.useBlurForPopup = YES;
     
@@ -120,20 +62,38 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    int i = 0;
+    if ([type isEqualToString:@"2"]) {
+        i = _categoryList.count;
+    } else {
+        i = 1;
+    }
+    return i;
+//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [dishes count];
+    int i = 0;
+    if ([type isEqualToString:@"2"]) {
+        DishCategory *dCat = [_categoryList objectAtIndex:section];
+        NSString *key = [NSString stringWithFormat:@"%i", dCat.cat_id];
+        i = [[_cat_dishes objectForKey:key] count];
+    } else {
+        i = [dishes count];
+    }
+    return i;
+//    return [dishes count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 74;
+    return 84;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    
+    NSUInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     
     static NSString *GroupedTableIdentifier = @"DishItemCell";
     DishItemCell *cell = (DishItemCell *)[tableView dequeueReusableCellWithIdentifier:
@@ -143,29 +103,67 @@
         cell = [nib objectAtIndex:0];
     }
     
-    Dish *d = [dishes objectAtIndex:indexPath.row];
+    if ([type isEqualToString:@"2"]) {
+        
+        DishCategory *dCat = [_categoryList objectAtIndex:section];
+        NSString *key = [NSString stringWithFormat:@"%i", dCat.cat_id];
+        dishes = [_cat_dishes objectForKey:key];
+    }
+    
+    Dish *d = [dishes objectAtIndex:row];
     cell.dishNameLabel.text = d.dishName;
     NSNumber *number = [NSNumber numberWithDouble:d.dishPrice];
     cell.dishPriceLabel.text = [number stringValue];
-    [cell.dishImage setImage:[UIImage imageNamed:d.dishImagePath] forState:UIControlStateNormal];
+//    [cell.dishImage setImage:[UIImage imageNamed:d.dishImagePath] forState:UIControlStateNormal];
+    
+    MyTapGesture *singleTap = [[MyTapGesture alloc] initWithTarget:self action:@selector(viewDishDetails:)];
+    singleTap.objTag = row;
+    singleTap.objSection = section;
+    [singleTap setNumberOfTapsRequired:1];
+    cell.dishImage.userInteractionEnabled = YES;
+    [cell.dishImage addGestureRecognizer:singleTap];
+    
+    [cell.dishImage setOnlineImage:d.dishImagePath];
+    
+    [cell.dishImage setTag:row];
     
     return cell;
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"";
+    NSString *result = @"";
+    if ([type isEqualToString:@"2"]) {
+        DishCategory *dCat = [_categoryList objectAtIndex:section];
+        result = dCat.cat_name;
+    }
+    return result;
+//    return @"";
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return nil;
+    NSArray *result = [[NSArray alloc] init];
+    if ([type isEqualToString:@"2"]) {
+        result = _catTitleList;
+    }
+    return result;
+//    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    int sec = indexPath.section;
+    
+    if ([type isEqualToString:@"2"]) {
+        DishCategory *dCat = [_categoryList objectAtIndex:sec];
+        NSString *key = [NSString stringWithFormat:@"%i", dCat.cat_id];
+        dishes = [_cat_dishes objectForKey:key];
+    }
+    
     Dish *dish = [[Dish alloc] init];
     dish = [dishes objectAtIndex:indexPath.row];
     [self.delegate contentViewControllerDelegateDidSelect:dish];
+    
     
     DishItemCell *cell = (DishItemCell *)[tableView cellForRowAtIndexPath:indexPath];
     [self addToShopCar:cell];
@@ -195,9 +193,25 @@
 }
 
 - (IBAction)viewDishDetails:(id)sender {
+    
+    MyTapGesture *g = (MyTapGesture *)sender;
+    int indexrow = g.objTag;
+    int sec = g.objSection;
+    
+    if ([type isEqualToString:@"2"]) {
+        
+        DishCategory *dCat = [_categoryList objectAtIndex:sec];
+        NSString *key = [NSString stringWithFormat:@"%i", dCat.cat_id];
+        dishes = [_cat_dishes objectForKey:key];
+    }
+    
+    Dish *dish = [[Dish alloc] init];
+    dish = [dishes objectAtIndex:indexrow];
+    
     DishDetailsViewController *dishDetailsViewController = [[DishDetailsViewController alloc] initWithNibName:@"DishDetailsViewController" bundle:nil];
     
     dishDetailsViewController.delegate = self;
+    dishDetailsViewController.dishId = dish.dishId;
     
     [self presentPopupViewController:dishDetailsViewController animated:YES completion:^{}];
 }
@@ -299,6 +313,31 @@
         group.autoreverses= NO;
         [transitionLayer1 addAnimation:group forKey:@"opacity"];
     }
+}
+
+#pragma mark - ASIHTTPRequest
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    [restService saveDishesAndCatList:request];
+    
+    if ([type isEqualToString:@"0"]) {
+        dishes = [restService getRecommendDishes];
+    } else if ([type isEqualToString:@"1"]) {
+        dishes = [restService getDishesByCount];
+    } else if ([type isEqualToString:@"2"]) {
+//        dishes = [restService getAllDishes];
+        DishService *dService = [[DishService alloc] init];
+        CategoryService *cService = [[CategoryService alloc] init];
+        _cat_dishes = [dService getDishesByCat];
+        _categoryList = [cService findAll];
+        _catTitleList = [[NSMutableArray alloc] init];
+        for (int i=0; i<_categoryList.count; i++) {
+            DishCategory *dCat = [_categoryList objectAtIndex:i];
+            [_catTitleList addObject:dCat.cat_name];
+        }
+    }
+    
+    [mainTable reloadData];
 }
 
 @end

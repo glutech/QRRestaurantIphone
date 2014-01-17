@@ -10,6 +10,7 @@
 #import "DishDetailsViewController.h"
 #import "Dish.h"
 #import "DishItemCell.h"
+#import "RestaurantService.h"
 
 @class ContentViewController;
 
@@ -23,9 +24,12 @@
 
 @property (nonatomic, weak) id <ContentViewControllerDelegate> delegate;
 
+@property (nonatomic, strong) RestaurantService *restService;
+
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
 
 @property NSString *type;
+@property NSInteger *rest_id;
 @property NSMutableArray *dishes;
 
 //@property (weak, nonatomic) IBOutlet UITableView *table;

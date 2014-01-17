@@ -29,6 +29,12 @@
     return [dao getById:dishId];
 }
 
+- (NSDictionary *)getDishesByCat
+{
+    DishDao *dao = [[DishDao alloc] init];
+    return [dao getAllByCat];
+}
+
 - (void)deleteAll
 {
     DishDao *dao =  [[DishDao alloc] init];
@@ -57,6 +63,18 @@
         
         [dao insert:dish];
     }
+}
+
+- (NSMutableArray *)getDishesByRecommemd
+{
+    DishDao *dao = [[DishDao alloc] init];
+    return [dao getByRecommend];
+}
+
+- (NSMutableArray *)getDishesByOrderedCount
+{
+    DishDao *dao = [[DishDao alloc] init];
+    return [dao getByCount];
 }
 
 @end

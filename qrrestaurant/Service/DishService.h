@@ -14,10 +14,15 @@
 
 - (void)insert:(Dish *)dish;
 - (NSMutableArray *)findAll;
+- (NSMutableArray *)getDishesByRecommemd;
+- (NSMutableArray *)getDishesByOrderedCount;
 - (Dish *)getById:(int)dishId;
 - (void)deleteAll;
 
 // 获取扫描完成之后得到的结果中的dishlist，并将dishlist解析为单个dish，写入数据库
 - (void)parseAndSaveDish:(DishVO *)dishVO;
+
+// 按照菜品类别获取菜品
+- (NSDictionary *)getDishesByCat;
 
 @end

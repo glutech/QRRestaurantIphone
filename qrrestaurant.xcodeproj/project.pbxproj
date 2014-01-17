@@ -65,6 +65,12 @@
 		7448A24B185AE1E300764FFE /* TempOrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7448A24A185AE1E300764FFE /* TempOrderService.m */; };
 		7448A24E185AE1EF00764FFE /* TempOrderDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 7448A24D185AE1EF00764FFE /* TempOrderDao.m */; };
 		7448A250185AE25100764FFE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7448A24F185AE25100764FFE /* libsqlite3.dylib */; };
+		745CDF081887DF58000D9451 /* MyTapGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 745CDF071887DF58000D9451 /* MyTapGesture.m */; };
+		74662A42187D404A004F897D /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 74662A3B187D404A004F897D /* base64.c */; };
+		74662A43187D404A004F897D /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 74662A3E187D404A004F897D /* NSData+SRB64Additions.m */; };
+		74662A44187D404A004F897D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 74662A41187D404A004F897D /* SRWebSocket.m */; };
+		74662A47187D406A004F897D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74662A46187D406A004F897D /* Security.framework */; };
+		74662A49187D4077004F897D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74662A48187D4077004F897D /* libicucore.dylib */; };
 		74C1BB2818471606009E44A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB2718471606009E44A2 /* icon.png */; };
 		74C1BB3518473E21009E44A2 /* item1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB3418473E21009E44A2 /* item1.png */; };
 		74C1BB3718473E5A009E44A2 /* item2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB3618473E5A009E44A2 /* item2.png */; };
@@ -85,6 +91,11 @@
 		74ECDCB31862FB1F006C05A8 /* DishService.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCB21862FB1F006C05A8 /* DishService.m */; };
 		74ECDCB61862FB2B006C05A8 /* CategoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCB51862FB2B006C05A8 /* CategoryService.m */; };
 		74ECDCBC186301EF006C05A8 /* DishCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECDCBB186301EF006C05A8 /* DishCategory.m */; };
+		74EDC09A18890D39001F87D4 /* AsyncImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EDC09218890D39001F87D4 /* AsyncImageDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		74EDC09B18890D39001F87D4 /* ImageCacheQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EDC09418890D39001F87D4 /* ImageCacheQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		74EDC09C18890D39001F87D4 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EDC09618890D39001F87D4 /* NSString+MD5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		74EDC09D18890D39001F87D4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 74EDC09718890D39001F87D4 /* README.md */; };
+		74EDC09E18890D39001F87D4 /* UIImageView+OnlineImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EDC09918890D39001F87D4 /* UIImageView+OnlineImage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74EDD0CB18445106007951EE /* MenuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EDD0CA18445106007951EE /* MenuListViewController.m */; };
 		74EDD0CF1844513F007951EE /* red_line_and_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EDD0CC1844513F007951EE /* red_line_and_shadow.png */; };
 		74EDD0D01844513F007951EE /* top_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74EDD0CD1844513F007951EE /* top_background.png */; };
@@ -250,6 +261,17 @@
 		7448A24C185AE1EF00764FFE /* TempOrderDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempOrderDao.h; sourceTree = "<group>"; };
 		7448A24D185AE1EF00764FFE /* TempOrderDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempOrderDao.m; sourceTree = "<group>"; };
 		7448A24F185AE25100764FFE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		745CDF061887DF58000D9451 /* MyTapGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTapGesture.h; sourceTree = "<group>"; };
+		745CDF071887DF58000D9451 /* MyTapGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTapGesture.m; sourceTree = "<group>"; };
+		74662A3B187D404A004F897D /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		74662A3C187D404A004F897D /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		74662A3D187D404A004F897D /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		74662A3E187D404A004F897D /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		74662A3F187D404A004F897D /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		74662A40187D404A004F897D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		74662A41187D404A004F897D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		74662A46187D406A004F897D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		74662A48187D4077004F897D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		74C1BB2718471606009E44A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = images/icon.png; sourceTree = "<group>"; };
 		74C1BB3418473E21009E44A2 /* item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item1.png; sourceTree = "<group>"; };
 		74C1BB3618473E5A009E44A2 /* item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item2.png; sourceTree = "<group>"; };
@@ -283,6 +305,15 @@
 		74ECDCB51862FB2B006C05A8 /* CategoryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryService.m; sourceTree = "<group>"; };
 		74ECDCBA186301EF006C05A8 /* DishCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishCategory.h; sourceTree = "<group>"; };
 		74ECDCBB186301EF006C05A8 /* DishCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCategory.m; sourceTree = "<group>"; };
+		74EDC09118890D39001F87D4 /* AsyncImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageDownloader.h; sourceTree = "<group>"; };
+		74EDC09218890D39001F87D4 /* AsyncImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageDownloader.m; sourceTree = "<group>"; };
+		74EDC09318890D39001F87D4 /* ImageCacheQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCacheQueue.h; sourceTree = "<group>"; };
+		74EDC09418890D39001F87D4 /* ImageCacheQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCacheQueue.m; sourceTree = "<group>"; };
+		74EDC09518890D39001F87D4 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		74EDC09618890D39001F87D4 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		74EDC09718890D39001F87D4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		74EDC09818890D39001F87D4 /* UIImageView+OnlineImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+OnlineImage.h"; sourceTree = "<group>"; };
+		74EDC09918890D39001F87D4 /* UIImageView+OnlineImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+OnlineImage.m"; sourceTree = "<group>"; };
 		74EDD0C918445106007951EE /* MenuListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuListViewController.h; sourceTree = "<group>"; };
 		74EDD0CA18445106007951EE /* MenuListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuListViewController.m; sourceTree = "<group>"; };
 		74EDD0CC1844513F007951EE /* red_line_and_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_line_and_shadow.png; sourceTree = "<group>"; };
@@ -324,10 +355,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				743FEA5F1840480B00F3162A /* CoreGraphics.framework in Frameworks */,
+				74662A49187D4077004F897D /* libicucore.dylib in Frameworks */,
+				743F79B81862918900082F46 /* CFNetwork.framework in Frameworks */,
+				74662A47187D406A004F897D /* Security.framework in Frameworks */,
 				74D8998A186424700066B6E3 /* QuartzCore.framework in Frameworks */,
 				743F79BC1862963800082F46 /* libz.dylib in Frameworks */,
 				743F79BA1862935E00082F46 /* libxml2.dylib in Frameworks */,
-				743F79B81862918900082F46 /* CFNetwork.framework in Frameworks */,
 				7448A250185AE25100764FFE /* libsqlite3.dylib in Frameworks */,
 				74F4AF4B1851AEB90028E6D4 /* libZXingWidget.a in Frameworks */,
 				74F4AF491851AEB00028E6D4 /* AddressBook.framework in Frameworks */,
@@ -337,7 +371,6 @@
 				74F4AF421851AE970028E6D4 /* CoreVideo.framework in Frameworks */,
 				74F4AF401851AE910028E6D4 /* AudioToolbox.framework in Frameworks */,
 				74F4AF3E1851AE8B0028E6D4 /* AVFoundation.framework in Frameworks */,
-				743FEA5F1840480B00F3162A /* CoreGraphics.framework in Frameworks */,
 				743FEA611840480B00F3162A /* UIKit.framework in Frameworks */,
 				743FEA5D1840480B00F3162A /* Foundation.framework in Frameworks */,
 			);
@@ -504,6 +537,8 @@
 		743FEA5B1840480B00F3162A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74662A48187D4077004F897D /* libicucore.dylib */,
+				74662A46187D406A004F897D /* Security.framework */,
 				74D89989186424700066B6E3 /* QuartzCore.framework */,
 				743F79BB1862963800082F46 /* libz.dylib */,
 				743F79B91862935E00082F46 /* libxml2.dylib */,
@@ -657,6 +692,8 @@
 				74ECDCA31862DC0D006C05A8 /* Restaurant.m */,
 				74ECDCBA186301EF006C05A8 /* DishCategory.h */,
 				74ECDCBB186301EF006C05A8 /* DishCategory.m */,
+				745CDF061887DF58000D9451 /* MyTapGesture.h */,
+				745CDF071887DF58000D9451 /* MyTapGesture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -680,6 +717,20 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		74662A3A187D404A004F897D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				74662A3B187D404A004F897D /* base64.c */,
+				74662A3C187D404A004F897D /* base64.h */,
+				74662A3D187D404A004F897D /* NSData+SRB64Additions.h */,
+				74662A3E187D404A004F897D /* NSData+SRB64Additions.m */,
+				74662A3F187D404A004F897D /* SocketRocket-Prefix.pch */,
+				74662A40187D404A004F897D /* SRWebSocket.h */,
+				74662A41187D404A004F897D /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
 		74D8998218641E970066B6E3 /* UIGlossyButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,9 +742,27 @@
 			path = UIGlossyButton;
 			sourceTree = "<group>";
 		};
+		74EDC09018890D39001F87D4 /* OnlineImageView */ = {
+			isa = PBXGroup;
+			children = (
+				74EDC09118890D39001F87D4 /* AsyncImageDownloader.h */,
+				74EDC09218890D39001F87D4 /* AsyncImageDownloader.m */,
+				74EDC09318890D39001F87D4 /* ImageCacheQueue.h */,
+				74EDC09418890D39001F87D4 /* ImageCacheQueue.m */,
+				74EDC09518890D39001F87D4 /* NSString+MD5.h */,
+				74EDC09618890D39001F87D4 /* NSString+MD5.m */,
+				74EDC09718890D39001F87D4 /* README.md */,
+				74EDC09818890D39001F87D4 /* UIImageView+OnlineImage.h */,
+				74EDC09918890D39001F87D4 /* UIImageView+OnlineImage.m */,
+			);
+			path = OnlineImageView;
+			sourceTree = "<group>";
+		};
 		74EDD0BE18445003007951EE /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				74EDC09018890D39001F87D4 /* OnlineImageView */,
+				74662A3A187D404A004F897D /* SocketRocket */,
 				74D8998218641E970066B6E3 /* UIGlossyButton */,
 				743F79621862916200082F46 /* asi-http-request */,
 				74FB92E218585E3C00198CEB /* CWPopup */,
@@ -854,6 +923,7 @@
 				74E07DE6186C228E00C6D157 /* ContentViewController.xib in Resources */,
 				74EF5B9D186D1AB300AE57C8 /* DishItemCell.xib in Resources */,
 				743F79B41862916200082F46 /* README-GHUnit in Resources */,
+				74EDC09D18890D39001F87D4 /* README.md in Resources */,
 				74E07DE1186C1DBB00C6D157 /* TestViewController.xib in Resources */,
 				743FEAA918408D9300F3162A /* Gestures@2x.png in Resources */,
 				74F890FB187A7CC70062CB47 /* cart_empty@2x.png in Resources */,
@@ -894,7 +964,9 @@
 				7448A24E185AE1EF00764FFE /* TempOrderDao.m in Sources */,
 				74F627FA1859A0890058F065 /* RestaurantListViewController.m in Sources */,
 				74D899801863F2350066B6E3 /* VariableDefinition.m in Sources */,
+				74EDC09B18890D39001F87D4 /* ImageCacheQueue.m in Sources */,
 				743FEA691840480B00F3162A /* main.m in Sources */,
+				74EDC09A18890D39001F87D4 /* AsyncImageDownloader.m in Sources */,
 				743F79AC1862916200082F46 /* ASICloudFilesObjectRequest.m in Sources */,
 				743F79C81862C52100082F46 /* DishVO.m in Sources */,
 				7448A23C185AB5F800764FFE /* Dish.m in Sources */,
@@ -903,12 +975,16 @@
 				74F627FE1859A0DA0058F065 /* RestaurantListCell.m in Sources */,
 				743F79AD1862916200082F46 /* ASICloudFilesRequest.m in Sources */,
 				74ECDCAA1862DD68006C05A8 /* DishDao.m in Sources */,
+				74EDC09E18890D39001F87D4 /* UIImageView+OnlineImage.m in Sources */,
 				743F79B21862916200082F46 /* ASIS3Request.m in Sources */,
 				743F79BF1862A2C600082F46 /* Customer.m in Sources */,
 				74FB92DE18584E1300198CEB /* DishItemCell.m in Sources */,
+				74662A44187D404A004F897D /* SRWebSocket.m in Sources */,
 				743F79CB1862C61B00082F46 /* ScanService.m in Sources */,
 				743F79C21862A47200082F46 /* CustomerDao.m in Sources */,
+				74662A42187D404A004F897D /* base64.c in Sources */,
 				743F799F1862916200082F46 /* ASIDataCompressor.m in Sources */,
+				745CDF081887DF58000D9451 /* MyTapGesture.m in Sources */,
 				74ECDCB61862FB2B006C05A8 /* CategoryService.m in Sources */,
 				743F79AE1862916200082F46 /* ASIS3Bucket.m in Sources */,
 				74ECDCA71862DCD4006C05A8 /* RestaurantDao.m in Sources */,
@@ -925,6 +1001,7 @@
 				743FEAB01840975300F3162A /* MyOrdersViewController.m in Sources */,
 				74024FD31861832E00CA8C07 /* RegisterViewController.m in Sources */,
 				743F79A61862916200082F46 /* ASIWebPageRequest.m in Sources */,
+				74EDC09C18890D39001F87D4 /* NSString+MD5.m in Sources */,
 				743F79A31862916200082F46 /* ASIHTTPRequest.m in Sources */,
 				743F79B11862916200082F46 /* ASIS3ObjectRequest.m in Sources */,
 				743F79A81862916200082F46 /* ASICloudFilesContainer.m in Sources */,
@@ -942,6 +1019,7 @@
 				743F79A51862916200082F46 /* ASINetworkQueue.m in Sources */,
 				74FB92E518585E3C00198CEB /* UIViewController+CWPopup.m in Sources */,
 				743F799E1862916200082F46 /* ASIAuthenticationDialog.m in Sources */,
+				74662A43187D404A004F897D /* NSData+SRB64Additions.m in Sources */,
 				743F79AB1862916200082F46 /* ASICloudFilesObject.m in Sources */,
 				743F79AF1862916200082F46 /* ASIS3BucketObject.m in Sources */,
 				743F79B31862916200082F46 /* ASIS3ServiceRequest.m in Sources */,

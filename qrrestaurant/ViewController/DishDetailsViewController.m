@@ -8,7 +8,11 @@
 
 #import "DishDetailsViewController.h"
 #import "UIView+LayerEffects.h"
+#import "DishService.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Dish.h"
+#import "TempOrderService.h"
+#import "UIImageView+OnlineImage.h"
 
 @interface DishDetailsViewController ()
 
@@ -18,9 +22,10 @@
 {
     int allPrice;
     int addPrice;
+    Dish *_dish;
 }
 
-@synthesize delegate, dishDetailsScrollView;
+@synthesize delegate, dishDetailsScrollView, dishId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,21 +40,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    DishService *dService = [[DishService alloc] init];
+    _dish = [dService getById:dishId];
+    
     self.dishDetailsScrollView.backgroundColor = [UIColor whiteColor];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 300, 200)];
-    UIImage *dishImage = [UIImage imageNamed:@"item1.png"];
+    _dish.dishImagePath = [_dish.dishImagePath stringByAppendingString:@"?imageView/1/w/300/h/200"];
     
-    imageView.image = dishImage;
+    [imageView setOnlineImage:_dish.dishImagePath];
+    
     imageView.contentMode = UIViewContentModeCenter;
     
     UILabel *dishName = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 300, 50)];
-    dishName.text = @"测试菜品";
+    dishName.text = _dish.dishName;
     [dishName setFont:[UIFont systemFontOfSize:15]];
     dishName.textAlignment = NSTextAlignmentCenter;
     
     UILabel *dishDesc = [[UILabel alloc] initWithFrame:CGRectMake(0, 380, 300, 50)];
-    dishDesc.text = @"我是一个测试菜品";
+    dishDesc.text = _dish.dishDescription;
     [dishDesc setFont:[UIFont systemFontOfSize:14]];
     dishDesc.textAlignment = NSTextAlignmentCenter;
     
@@ -68,7 +78,6 @@
     [self.dishDetailsScrollView addSubview:dishDesc];
     [self.dishDetailsScrollView addSubview:cancelButton];
     [self.dishDetailsScrollView addSubview:sureButton];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -94,6 +103,10 @@
 //    NSIndexPath *indexPath = [mainTable indexPathForCell:cell];
 //    NSDictionary *dic = [dataList objectAtIndex:indexPath.row];
 //    addPrice = [[dic valueForKey:@"price"]intValue];
+    
+    // 将菜品加入临时点菜单
+    TempOrderService *tempOrderService = [[TempOrderService alloc] init];
+    [tempOrderService insert:_dish];
     
     UIButton *shopCarBt = (UIButton*)[self.view viewWithTag:44];
     

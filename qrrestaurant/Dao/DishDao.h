@@ -24,13 +24,22 @@
 // 插入数据
 - (void)insert:(Dish *)dish;
 
-// 查询
+// 查询所有菜品
 - (NSMutableArray *)findAll;
+
+// 根据推荐指数查询
+- (NSMutableArray *)getByRecommend;
+
+// 根据被点数量查询
+- (NSMutableArray *)getByCount;
 
 // 查询某一个
 - (Dish *)getById:(int)dishId;
 
 // 删除
 - (void)deleteAll;
+
+// 根据分类获得全部菜品
+- (NSDictionary *)getAllByCat;
 
 @end

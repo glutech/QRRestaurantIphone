@@ -14,6 +14,7 @@
 #import "MyOrdersViewController.h"
 #import "ScanService.h"
 #import "RestaurantService.h"
+#import "Restaurant.h"
 
 @interface InitailViewController () <ZXingDelegate>
 
@@ -90,7 +91,14 @@
     
     HostViewController *hostViewController = [storyboard instantiateViewControllerWithIdentifier:@"hostViewController"];
     
+    NSArray *resultArray = [result componentsSeparatedByString:@"/"];
+    NSString *tableIdStr = [resultArray lastObject];
+    NSLog(@"got tableId: %@", tableIdStr);
+    
+    hostViewController.rest_id = 1;
+    hostViewController.rest_name = @"测试餐厅1";
     hostViewController.hostViewdelegate = self;
+    hostViewController.isFromScanView = TRUE;
     
     [controller presentViewController:hostViewController animated:YES completion:nil];
 }
@@ -110,13 +118,5 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"getRestList"]) {
-//        RestaurantService *restaurantService = [[RestaurantService alloc] init];
-//        [restaurantService getRestaurantList];
-//    }
-//}
 
 @end

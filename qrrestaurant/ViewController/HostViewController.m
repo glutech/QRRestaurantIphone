@@ -8,17 +8,30 @@
 
 #import "HostViewController.h"
 #import "ContentViewController.h"
+#import "SRWebSocket.h"
+#import "RestaurantService.h"
 
-@interface HostViewController () <ViewPagerDataSource, ViewPagerDelegate>
+@interface TCMessage : NSObject
+
+- (id)initWithMessage:(NSString *)message fromMe:(BOOL)fromMe;
+
+@property (nonatomic, retain, readonly) NSString *message;
+@property (nonatomic, readonly) BOOL fromMe;
+
+@end
+
+@interface HostViewController () <ViewPagerDataSource, ViewPagerDelegate, SRWebSocketDelegate>
 
 @end
 
 @implementation HostViewController
 {
     NSMutableArray *tabItems;
+    SRWebSocket *_webSocket;
+    NSMutableArray *_messages;
 }
 
-@synthesize orderedDishesViewController, tempDishes;
+@synthesize orderedDishesViewController, tempDishes, rest_id, isFromScanView, rest_name;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +54,7 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(goBack:)];
     UIBarButtonItem *selectedButton = [[UIBarButtonItem alloc] initWithTitle:@"已点" style:UIBarButtonItemStyleDone target:self action:@selector(selected:)];
     
-    [navigationItem setTitle:@"测试餐馆"];
+    [navigationItem setTitle:rest_name];
     
     [navigationBar pushNavigationItem:navigationItem animated:NO];
     
@@ -59,6 +72,13 @@
     
     tempDishes = [[NSMutableArray alloc] init];
     
+    _messages = [[NSMutableArray alloc] init];
+    
+    // 若是通过扫描二维码进入，则是现场点餐，可能存在协同点餐，需要socket，否则不需要
+    if (isFromScanView) {
+        [self _reconnect];
+    }
+    
     [super viewDidLoad];
 }
 
@@ -69,6 +89,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     orderedDishesViewController = [storyboard instantiateViewControllerWithIdentifier:@"orderedDishesViewController"];
     orderedDishesViewController.delegate = self;
+    
 }
 
 #pragma mark - ViewPageDataSource
@@ -94,6 +115,8 @@
     ContentViewController *cvc = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
     
     cvc.delegate = self;
+    cvc.type = [NSString stringWithFormat:@"%i", index];
+    cvc.rest_id = rest_id;
     
     return cvc;
 }
@@ -137,11 +160,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    _webSocket.delegate = nil;
+    [_webSocket close];
+    _webSocket = nil;
+}
+
 - (IBAction)goBack:(id)sender {
+    
+    [_webSocket close];
+    _webSocket = nil;
+    
     [self.hostViewdelegate didBack:self];
 }
 
+// 查看已点的菜
 - (IBAction)selected:(id)sender {
+    
+    //要先通过socket获取已点的菜，以网络上的为准
+    // 取取取...
+    // 到orderedDishesViewController之后用delegate实现
+    
     [self presentViewController:orderedDishesViewController animated:YES completion:nil];
 }
 
@@ -159,6 +201,71 @@
 - (void)orderedDishesViewControllerDidSubmit:(OrderedDishesViewController *)controller
 {
     NSLog(@"submit~~~~~");
+}
+
+#pragma mark - SRWebSocket
+
+- (void)_reconnect
+{
+    _webSocket.delegate = nil;
+    [_webSocket close];
+    
+    
+    NSString *wsURLString = [WSHOST_NAME stringByAppendingString:@"wsservlet/WSOrderWSServlet?tid=2&uid=1"];
+    
+    NSLog(@"address: %@", wsURLString);
+    
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:wsURLString]]];
+    _webSocket.delegate = self;
+    
+    [_webSocket open];
+}
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket
+{
+    NSLog(@"Websocket Connected!");
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
+{
+    NSLog(@":( Websocket Failed With Error %@", error);
+    _webSocket = nil;
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
+{
+    NSLog(@"Received: \"%@\"", message);
+    
+    // 用" "（空格）将收到的消息字符串分割
+    NSArray *msgArray = [message componentsSeparatedByString:@" "];
+    NSString *operationKey = [msgArray objectAtIndex:0];
+    NSLog(@"operation: %@", operationKey);
+    
+//    [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
+{
+    NSLog(@"WebSocket closed!");
+    _webSocket = nil;
+}
+
+@end
+
+@implementation TCMessage
+
+@synthesize message = _message;
+@synthesize fromMe = _fromMe;
+
+- (id)initWithMessage:(NSString *)message fromMe:(BOOL)fromMe
+{
+    self = [super init];
+    if (self) {
+        _fromMe = fromMe;
+        _message = message;
+    }
+    
+    return self;
 }
 
 @end

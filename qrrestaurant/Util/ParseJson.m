@@ -8,6 +8,8 @@
 
 #import "ParseJson.h"
 #import "Restaurant.h"
+#import "Dish.h"
+#import "DishService.h"
 
 @implementation ParseJson
 

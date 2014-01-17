@@ -11,6 +11,8 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "ParseJson.h"
+#import "DishService.h"
+#import "CategoryService.h"
 
 @implementation RestaurantService
 
@@ -54,6 +56,51 @@
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:postURL]];
     
     return request;
+}
+
+- (ASIHTTPRequest *)getDishesRequest:(NSInteger *)rest_id
+{
+    NSString *postURL = [NSString stringWithFormat:@"book/get_dishes"];
+    postURL = [HOST_NAME stringByAppendingString:postURL];
+    
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:postURL]];
+    
+    [request addPostValue:[NSString stringWithFormat:@"%i", rest_id] forKey:@"r_id"];
+    
+    return request;
+}
+
+- (void)saveDishesAndCatList:(ASIHTTPRequest *)request
+{
+    ParseJson *pj = [[ParseJson alloc] init];
+    DishService *dService = [[DishService alloc] init];
+    CategoryService *cService = [[CategoryService alloc] init];
+    [dService parseAndSaveDish:[pj parseScanResult:[request responseData]]];
+    [cService parseAndSaveDishCategory:[pj parseScanResult:[request responseData]]];
+}
+
+- (NSMutableArray *)getRecommendDishes
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    DishService *dService = [[DishService alloc] init];
+    result = [dService getDishesByRecommemd];
+    return result;
+}
+
+- (NSMutableArray *)getDishesByCount
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    DishService *dService = [[DishService alloc] init];
+    result = [dService getDishesByOrderedCount];
+    return result;
+}
+
+- (NSMutableArray *)getAllDishes
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    DishService *dService = [[DishService alloc] init];
+    result = [dService findAll];
+    return result;
 }
 
 @end

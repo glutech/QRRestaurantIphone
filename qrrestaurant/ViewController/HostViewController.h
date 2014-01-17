@@ -26,6 +26,9 @@
 @property (nonatomic, retain) OrderedDishesViewController *orderedDishesViewController;
 @property (nonatomic, weak) id <HostViewControllerDelegate> hostViewdelegate;
 @property (nonatomic, retain) NSMutableArray *tempDishes;
+@property (nonatomic) int rest_id;
+@property (nonatomic, retain) NSString *rest_name;
+@property (nonatomic) BOOL isFromScanView;
 - (IBAction)goBack:(id)sender;
 - (IBAction)selected:(id)sender;
 
