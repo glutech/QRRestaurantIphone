@@ -32,5 +32,19 @@
     return request;
 }
 
+- (ASIHTTPRequest *)getOrderDishesRequest:(NSString *)orderIdStr {
+
+    NSString *postURL = [NSString stringWithFormat:@"history/get_order?m_id="];
+    postURL = [postURL stringByAppendingString:orderIdStr];
+
+    NSLog(@"URL: %@", postURL);
+
+    postURL = [HOST_NAME stringByAppendingString:postURL];
+
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:postURL]];
+
+    return request;
+}
+
 
 @end

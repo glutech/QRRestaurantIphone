@@ -82,5 +82,15 @@
     return result;
 }
 
+- (NSMutableArray *)parseOrderDishesList:(NSData *)orderDishesList {
+    NSError *error;
+
+    NSDictionary *orderInfoDic = [NSJSONSerialization JSONObjectWithData:orderDishesList options:NSJSONReadingAllowFragments error:&error];
+
+    NSMutableArray *result = [orderInfoDic objectForKey:@"dishes"];
+
+    return result;
+}
+
 
 @end

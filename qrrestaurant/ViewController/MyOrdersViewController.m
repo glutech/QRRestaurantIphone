@@ -20,6 +20,7 @@
 @implementation MyOrdersViewController
 {
     NSMutableArray *_tableItems;
+    int _selectedOrderId;
 }
 
 @synthesize delegate, listTable;
@@ -72,6 +73,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    OrderListItem *orderListItem = [_tableItems objectAtIndex:indexPath.row];
+
+    // 这个地方order和menu其实是一个概念，好乱...
+    _selectedOrderId = orderListItem.menuId;
+
+    OrderDishesListViewController *orderDishesListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"orderDishesListViewController"];
+
+    orderDishesListViewController.delegate = self;
+
+    NSLog(@"selectedId: %d", _selectedOrderId);
+
+    [orderDishesListViewController setValue:[NSString stringWithFormat:@"%d", _selectedOrderId] forKey:@"menuId"];
+
+    [self presentViewController:orderDishesListViewController animated:YES completion:nil];
 }
 
 
@@ -87,4 +102,19 @@
 - (IBAction)back:(id)sender {
     [self.delegate myOrdersViewControllerDidBack:self];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toOrderDishesList"]) {
+
+    }
+}
+
+#pragma mark - OrderDishesListViewControllerDelegate
+
+- (void)orderDishesListViewControllerDidBack:(OrderDishesListViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    [listTable reloadData];
+}
+
 @end

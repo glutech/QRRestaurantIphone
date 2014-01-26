@@ -9,7 +9,6 @@
 #import "HostViewController.h"
 #import "ContentViewController.h"
 #import "SRWebSocket.h"
-#import "RestaurantService.h"
 #import "Toast+UIView.h"
 
 @interface TCMessage : NSObject
@@ -198,6 +197,7 @@
     // send notification to Server
     // send here
 
+    // 命令需要根据实际的用户id和菜品id拼凑
     NSString *msg = @"ADD 2 1";
     if (_webSocket != nil) {
         [_webSocket send:msg];
@@ -207,6 +207,14 @@
 
 - (void)orderedDishesViewControllerDidBack:(OrderedDishesViewController *)controller
 {
+
+    // 发消息说我退出了
+    // 命令需要根据自己的id拼凑
+    NSString *msg = @"LEAVA 1";
+    if (_webSocket != nil) {
+        [_webSocket send:msg];
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

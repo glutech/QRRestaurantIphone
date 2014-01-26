@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderDishesListViewController.h"
 
 @class MyOrdersViewController;
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface MyOrdersViewController : UIViewController
+@interface MyOrdersViewController : UIViewController <OrderDishesListViewControllerDelegate>
 
 @property (nonatomic, weak) id <MyOrdersViewControllerDelegate> delegate;
 - (IBAction)back:(id)sender;

@@ -13,5 +13,6 @@
 - (NSMutableArray *)getHistoryOrders:(int)customerId;
 - (NSMutableArray *)getBookOrders:(int)customerId;
 - (ASIHTTPRequest *) getOrdersRequest;
+- (ASIHTTPRequest *) getOrderDishesRequest:(NSString *)orderIdStr;
 
 @end

@@ -17,4 +17,6 @@
 
 - (NSMutableArray *)parseOrderList:(NSData *)orderList;
 
+- (NSMutableArray *)parseOrderDishesList:(NSData *)orderDishesList;
+
 @end

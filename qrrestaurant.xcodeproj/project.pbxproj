@@ -12,6 +12,7 @@
 		44A3CBE454DD01BB2A5896A1 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3CE2201F26DFAC9F1E02C /* OrderService.m */; };
 		74024FCF1861823900CA8C07 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74024FCE1861823900CA8C07 /* LoginViewController.m */; };
 		74024FD31861832E00CA8C07 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74024FD21861832E00CA8C07 /* RegisterViewController.m */; };
+		7430825A1894D49B00FEE3F7 /* OrderDishesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743082591894D49B00FEE3F7 /* OrderDishesListViewController.m */; };
 		743F799E1862916200082F46 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F79651862916200082F46 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		743F799F1862916200082F46 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F79681862916200082F46 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		743F79A01862916200082F46 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F796A1862916200082F46 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -171,6 +172,8 @@
 		74024FCE1861823900CA8C07 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		74024FD11861832E00CA8C07 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74024FD21861832E00CA8C07 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		743082581894D49B00FEE3F7 /* OrderDishesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDishesListViewController.h; sourceTree = "<group>"; };
+		743082591894D49B00FEE3F7 /* OrderDishesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDishesListViewController.m; sourceTree = "<group>"; };
 		743F79641862916200082F46 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		743F79651862916200082F46 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		743F79661862916200082F46 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -691,6 +694,8 @@
 				74E07DE2186C228E00C6D157 /* ContentViewController.h */,
 				74E07DE3186C228E00C6D157 /* ContentViewController.m */,
 				74E07DE4186C228E00C6D157 /* ContentViewController.xib */,
+				743082581894D49B00FEE3F7 /* OrderDishesListViewController.h */,
+				743082591894D49B00FEE3F7 /* OrderDishesListViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				743F79B11862916200082F46 /* ASIS3ObjectRequest.m in Sources */,
 				743F79A81862916200082F46 /* ASICloudFilesContainer.m in Sources */,
 				743F79C51862BE2500082F46 /* CustomerService.m in Sources */,
+				7430825A1894D49B00FEE3F7 /* OrderDishesListViewController.m in Sources */,
 				743F79B51862916200082F46 /* Reachability.m in Sources */,
 				74024FCF1861823900CA8C07 /* LoginViewController.m in Sources */,
 				74ECDCB31862FB1F006C05A8 /* DishService.m in Sources */,
