@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A3C0A700E89B3682266578 /* OrderListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C40E189F53767BFDD218 /* OrderListItem.m */; };
+		44A3C1935C58783A5E55A87B /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3C6794FFC98C0E235FEC9 /* Toast+UIView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44A3CBE454DD01BB2A5896A1 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A3CE2201F26DFAC9F1E02C /* OrderService.m */; };
 		74024FCF1861823900CA8C07 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74024FCE1861823900CA8C07 /* LoginViewController.m */; };
 		74024FD31861832E00CA8C07 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74024FD21861832E00CA8C07 /* RegisterViewController.m */; };
 		743F799E1862916200082F46 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 743F79651862916200082F46 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -71,10 +74,12 @@
 		74662A44187D404A004F897D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 74662A41187D404A004F897D /* SRWebSocket.m */; };
 		74662A47187D406A004F897D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74662A46187D406A004F897D /* Security.framework */; };
 		74662A49187D4077004F897D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74662A48187D4077004F897D /* libicucore.dylib */; };
+		74695CD4188F8880003E2D5C /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74695CD3188F8880003E2D5C /* OrderListCell.m */; };
 		74C1BB2818471606009E44A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB2718471606009E44A2 /* icon.png */; };
 		74C1BB3518473E21009E44A2 /* item1.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB3418473E21009E44A2 /* item1.png */; };
 		74C1BB3718473E5A009E44A2 /* item2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB3618473E5A009E44A2 /* item2.png */; };
 		74C1BB3918473E96009E44A2 /* item3.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C1BB3818473E96009E44A2 /* item3.png */; };
+		74C9019F188E4F3D004B4135 /* DishItemCellinCatList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C9019E188E4F3D004B4135 /* DishItemCellinCatList.xib */; };
 		74D899801863F2350066B6E3 /* VariableDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8997F1863F2350066B6E3 /* VariableDefinition.m */; };
 		74D8998718641E970066B6E3 /* UIGlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8998418641E970066B6E3 /* UIGlossyButton.m */; };
 		74D8998818641E970066B6E3 /* UIView+LayerEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D8998618641E970066B6E3 /* UIView+LayerEffects.m */; };
@@ -156,6 +161,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44A3C048A5AE4BD7CC5724D3 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderService.h; sourceTree = "<group>"; };
+		44A3C097CA1E26CF7ADE3383 /* OrderListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListItem.h; sourceTree = "<group>"; };
+		44A3C40E189F53767BFDD218 /* OrderListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListItem.m; sourceTree = "<group>"; };
+		44A3C6794FFC98C0E235FEC9 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		44A3CACE3E685A1321993262 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		44A3CE2201F26DFAC9F1E02C /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderService.m; sourceTree = "<group>"; };
 		74024FCD1861823900CA8C07 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		74024FCE1861823900CA8C07 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		74024FD11861832E00CA8C07 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -272,10 +283,13 @@
 		74662A41187D404A004F897D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		74662A46187D406A004F897D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		74662A48187D4077004F897D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		74695CD2188F8880003E2D5C /* OrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
+		74695CD3188F8880003E2D5C /* OrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
 		74C1BB2718471606009E44A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = images/icon.png; sourceTree = "<group>"; };
 		74C1BB3418473E21009E44A2 /* item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item1.png; sourceTree = "<group>"; };
 		74C1BB3618473E5A009E44A2 /* item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item2.png; sourceTree = "<group>"; };
 		74C1BB3818473E96009E44A2 /* item3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item3.png; sourceTree = "<group>"; };
+		74C9019E188E4F3D004B4135 /* DishItemCellinCatList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishItemCellinCatList.xib; sourceTree = "<group>"; };
 		74D8997E1863F2350066B6E3 /* VariableDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableDefinition.h; sourceTree = "<group>"; };
 		74D8997F1863F2350066B6E3 /* VariableDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableDefinition.m; sourceTree = "<group>"; };
 		74D8998318641E970066B6E3 /* UIGlossyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGlossyButton.h; sourceTree = "<group>"; };
@@ -389,6 +403,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44A3C3D21505EDAAE39EA5FE /* InfoHUD */ = {
+			isa = PBXGroup;
+			children = (
+				44A3CACE3E685A1321993262 /* Toast+UIView.h */,
+				44A3C6794FFC98C0E235FEC9 /* Toast+UIView.m */,
+			);
+			path = InfoHUD;
+			sourceTree = "<group>";
+		};
+		743082551894A9C000FEE3F7 /* VO */ = {
+			isa = PBXGroup;
+			children = (
+				44A3C40E189F53767BFDD218 /* OrderListItem.m */,
+				44A3C097CA1E26CF7ADE3383 /* OrderListItem.h */,
+			);
+			path = VO;
+			sourceTree = "<group>";
+		};
 		743F79621862916200082F46 /* asi-http-request */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +594,7 @@
 		743FEA621840480B00F3162A /* qrrestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				743082551894A9C000FEE3F7 /* VO */,
 				743F79CC1862CE9600082F46 /* Util */,
 				74F4AF27185183D20028E6D4 /* ZXingWidget.xcodeproj */,
 				7448A248185AE1DA00764FFE /* Service */,
@@ -713,6 +746,8 @@
 				74ECDCB21862FB1F006C05A8 /* DishService.m */,
 				74ECDCB41862FB2B006C05A8 /* CategoryService.h */,
 				74ECDCB51862FB2B006C05A8 /* CategoryService.m */,
+				44A3CE2201F26DFAC9F1E02C /* OrderService.m */,
+				44A3C048A5AE4BD7CC5724D3 /* OrderService.h */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -767,6 +802,7 @@
 				743F79621862916200082F46 /* asi-http-request */,
 				74FB92E218585E3C00198CEB /* CWPopup */,
 				74FB92CB1858362A00198CEB /* ICViewPager */,
+				44A3C3D21505EDAAE39EA5FE /* InfoHUD */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -799,6 +835,9 @@
 				7448A240185AD03400764FFE /* OrderedDishCell.h */,
 				7448A241185AD03400764FFE /* OrderedDishCell.m */,
 				74EF5B9C186D1AB300AE57C8 /* DishItemCell.xib */,
+				74C9019E188E4F3D004B4135 /* DishItemCellinCatList.xib */,
+				74695CD2188F8880003E2D5C /* OrderListCell.h */,
+				74695CD3188F8880003E2D5C /* OrderListCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -919,6 +958,7 @@
 				743FEA751840480B00F3162A /* Images.xcassets in Resources */,
 				743FEA671840480B00F3162A /* InfoPlist.strings in Resources */,
 				74C1BB3518473E21009E44A2 /* item1.png in Resources */,
+				74C9019F188E4F3D004B4135 /* DishItemCellinCatList.xib in Resources */,
 				74EDD0D11844513F007951EE /* top_channelbutton_shadow.png in Resources */,
 				74E07DE6186C228E00C6D157 /* ContentViewController.xib in Resources */,
 				74EF5B9D186D1AB300AE57C8 /* DishItemCell.xib in Resources */,
@@ -961,6 +1001,7 @@
 				74D8998718641E970066B6E3 /* UIGlossyButton.m in Sources */,
 				74ECDCA41862DC0D006C05A8 /* Restaurant.m in Sources */,
 				743FEA6D1840480B00F3162A /* AppDelegate.m in Sources */,
+				74695CD4188F8880003E2D5C /* OrderListCell.m in Sources */,
 				7448A24E185AE1EF00764FFE /* TempOrderDao.m in Sources */,
 				74F627FA1859A0890058F065 /* RestaurantListViewController.m in Sources */,
 				74D899801863F2350066B6E3 /* VariableDefinition.m in Sources */,
@@ -1025,6 +1066,9 @@
 				743F79B31862916200082F46 /* ASIS3ServiceRequest.m in Sources */,
 				74FB92E11858598100198CEB /* DishDetailsViewController.m in Sources */,
 				743F79B01862916200082F46 /* ASIS3BucketRequest.m in Sources */,
+				44A3C1935C58783A5E55A87B /* Toast+UIView.m in Sources */,
+				44A3CBE454DD01BB2A5896A1 /* OrderService.m in Sources */,
+				44A3C0A700E89B3682266578 /* OrderListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

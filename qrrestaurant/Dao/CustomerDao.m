@@ -126,4 +126,9 @@
     sqlite3_close(db);
 }
 
+- (void)updateCustomerInfo:(Customer *)customer {
+
+}
+
+
 @end

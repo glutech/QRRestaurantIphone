@@ -7,19 +7,34 @@
 //
 
 #import "MyOrdersViewController.h"
+#import "ASIHTTPRequest.h"
+#import "OrderService.h"
+#import "ParseJson.h"
+#import "OrderListCell.h"
+#import "OrderListItem.h"
 
-@interface MyOrdersViewController ()
+@interface MyOrdersViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation MyOrdersViewController
+{
+    NSMutableArray *_tableItems;
+}
 
-@synthesize delegate;
+@synthesize delegate, listTable;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    OrderService *orderService = [[OrderService alloc] init];
+    ASIHTTPRequest *request = [orderService getOrdersRequest];
+    [request setDelegate:self];
+    [request startAsynchronous];
+
+    [listTable setDelegate:self];
+    [listTable setDataSource:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,26 +47,41 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_tableItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"orderListCell";
+    OrderListCell *cell = (OrderListCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    
+    OrderListItem *orderListItem = [_tableItems objectAtIndex:indexPath.row];
+
+    cell.restName.text = orderListItem.restName;
+    cell.menuPrice.text = orderListItem.menuPrice;
+    cell.menuTime.text = orderListItem.menuTime;
+
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+
+#pragma mark - ASIHTTPRequest
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    ParseJson *parseJson = [[ParseJson alloc] init];
+    _tableItems = [parseJson parseOrderList:[request responseData]];
+
+    [listTable reloadData];
 }
 
 - (IBAction)back:(id)sender {

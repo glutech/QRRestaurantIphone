@@ -8,8 +8,7 @@
 
 #import "ParseJson.h"
 #import "Restaurant.h"
-#import "Dish.h"
-#import "DishService.h"
+#import "OrderListItem.h"
 
 @implementation ParseJson
 
@@ -55,5 +54,33 @@
     
     return result;
 }
+
+- (NSMutableArray *)parseOrderList:(NSData *)orderList {
+
+    NSError *error;
+
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+
+    NSDictionary *menuDic = [NSJSONSerialization JSONObjectWithData:orderList options:NSJSONReadingMutableContainers error:&error];
+
+    // 将Dictionary转为array返回
+
+    OrderListItem *tempOrderListItemObject;
+    for (NSDictionary *dic in menuDic) {
+        tempOrderListItemObject = [[OrderListItem alloc] init];
+        tempOrderListItemObject.restName = [dic objectForKey:@"rest_name"];
+
+        NSDictionary *tempMenuItem = [dic objectForKey:@"me"];
+
+        tempOrderListItemObject.menuId = [[tempMenuItem objectForKey:@"menu_id"] integerValue];
+        tempOrderListItemObject.menuPrice = [[tempMenuItem objectForKey:@"menu_price"] stringValue];
+        tempOrderListItemObject.menuTime = [tempMenuItem objectForKey:@"menu_time"];
+
+        [result addObject:tempOrderListItemObject];
+    }
+
+    return result;
+}
+
 
 @end

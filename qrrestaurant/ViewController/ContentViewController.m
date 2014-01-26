@@ -7,16 +7,10 @@
 //
 
 #import "ContentViewController.h"
-#import "DishDetailsViewController.h"
 #import "UIViewController+CWPopup.h"
-#import "UIGlossyButton.h"
-#import "UIView+LayerEffects.h"
-#import <QuartzCore/QuartzCore.h>
 #import "ASIHTTPRequest.h"
 #import "DishService.h"
-#import "ParseJson.h"
 #import "CategoryService.h"
-#import "DishCategory.h"
 #import "MyTapGesture.h"
 #import "UIImageView+OnlineImage.h"
 
@@ -99,8 +93,13 @@
     DishItemCell *cell = (DishItemCell *)[tableView dequeueReusableCellWithIdentifier:
                           GroupedTableIdentifier];
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DishItemCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        if ([type isEqualToString:@"2"]) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DishItemCellinCatList" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        } else {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DishItemCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
     }
     
     if ([type isEqualToString:@"2"]) {
@@ -160,8 +159,7 @@
         dishes = [_cat_dishes objectForKey:key];
     }
     
-    Dish *dish = [[Dish alloc] init];
-    dish = [dishes objectAtIndex:indexPath.row];
+    Dish *dish = [dishes objectAtIndex:indexPath.row];
     [self.delegate contentViewControllerDelegateDidSelect:dish];
     
     
@@ -205,8 +203,7 @@
         dishes = [_cat_dishes objectForKey:key];
     }
     
-    Dish *dish = [[Dish alloc] init];
-    dish = [dishes objectAtIndex:indexrow];
+    Dish *dish = [dishes objectAtIndex:indexrow];
     
     DishDetailsViewController *dishDetailsViewController = [[DishDetailsViewController alloc] initWithNibName:@"DishDetailsViewController" bundle:nil];
     

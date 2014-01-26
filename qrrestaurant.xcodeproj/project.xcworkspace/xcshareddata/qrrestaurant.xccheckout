@@ -5,11 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>AF17D37E-EB23-4ECE-81A7-94A64320BCDE</string>
+	<string>421A7B77-684C-470D-8F25-8AD3862E3D88</string>
 	<key>IDESourceControlProjectName</key>
 	<string>qrrestaurant</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>401DB9FF-AC30-4D6C-A1FF-79D0F8867065</key>
+		<string>ssh://github.com/siqin/OnlineImageView.git</string>
 		<key>B301F399-2A75-4311-ACE1-71CF6698A6DF</key>
 		<string>ssh://github.com/glutech/QRRestaurantIphone.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>qrrestaurant.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>401DB9FF-AC30-4D6C-A1FF-79D0F8867065</key>
+		<string>../../qrrestaurant/Vendor/OnlineImageView</string>
 		<key>B301F399-2A75-4311-ACE1-71CF6698A6DF</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>B301F399-2A75-4311-ACE1-71CF6698A6DF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>401DB9FF-AC30-4D6C-A1FF-79D0F8867065</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OnlineImageView</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

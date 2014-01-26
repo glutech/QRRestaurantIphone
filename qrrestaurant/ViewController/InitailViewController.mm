@@ -59,9 +59,9 @@
     [self presentViewController:myOrdersViewController animated:YES completion:nil];
 }
 
+// 使用ZXing扫描二维码
 - (IBAction)scan:(id)sender {
-//    ScanService *service = [[ScanService alloc] init];
-//    [service getScanResult:2];
+    
     ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
     
     UIImage *qrOverlyImage = [UIImage imageNamed:@"320x480_bgImg.png"];
@@ -85,6 +85,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+// 扫描完成后，获得对应的餐厅id和餐桌id，跳转至餐厅菜品列表进行点菜
 -(void)zxingController:(ZXingWidgetController *)controller didScanResult:(NSString *)result
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

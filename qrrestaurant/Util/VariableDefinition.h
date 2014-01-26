@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#define HOST_NAME @"http://192.168.1.115:9080/qr_restaurant/"
+#define HOST_NAME @"http://192.168.1.100:9080/qr_restaurant/"
 #define DBFILE_NAME @"qrr.sqlite3"
-#define WSHOST_NAME @"ws://192.168.1.115:9080/qr_restaurant/"
+#define WSHOST_NAME @"ws://192.168.1.100:9080/qr_restaurant/"
 
 @interface VariableDefinition : NSObject
 

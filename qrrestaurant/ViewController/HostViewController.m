@@ -10,6 +10,7 @@
 #import "ContentViewController.h"
 #import "SRWebSocket.h"
 #import "RestaurantService.h"
+#import "Toast+UIView.h"
 
 @interface TCMessage : NSObject
 
@@ -78,7 +79,7 @@
     if (isFromScanView) {
         [self _reconnect];
     }
-    
+
     [super viewDidLoad];
 }
 
@@ -101,7 +102,6 @@
     UILabel *label = [UILabel new];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:13.0];
-    //    label.text = [NSString stringWithFormat:@"Content View #%i", index];
     label.text = [NSString stringWithFormat:@"%@", [tabItems objectAtIndex:index]];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor blackColor];
@@ -116,7 +116,9 @@
     
     cvc.delegate = self;
     cvc.type = [NSString stringWithFormat:@"%i", index];
-    cvc.rest_id = rest_id;
+    
+    // 给ContentViewController需要餐馆id，通过异步获取该餐馆的菜品
+    cvc.rest_id = (NSInteger *) rest_id;
     
     return cvc;
 }
@@ -127,13 +129,10 @@
     switch (option) {
         case ViewPagerOptionStartFromSecondTab:
             return 0.0;
-            break;
         case ViewPagerOptionCenterCurrentTab:
             return 0.0;
-            break;
         case ViewPagerOptionTabLocation:
             return 1.0;
-            break;
         default:
             break;
     }
@@ -146,7 +145,6 @@
     switch (component) {
         case ViewPagerIndicator:
             return [[UIColor redColor] colorWithAlphaComponent:0.64];
-            break;
         default:
             break;
     }
@@ -164,15 +162,19 @@
 {
     [super viewDidDisappear:animated];
     
-    _webSocket.delegate = nil;
-    [_webSocket close];
-    _webSocket = nil;
+    if (isFromScanView) {
+        _webSocket.delegate = nil;
+        [_webSocket close];
+        _webSocket = nil;
+    }
 }
 
 - (IBAction)goBack:(id)sender {
     
-    [_webSocket close];
-    _webSocket = nil;
+    if (isFromScanView) {
+        [_webSocket close];
+        _webSocket = nil;
+    }
     
     [self.hostViewdelegate didBack:self];
 }
@@ -187,10 +189,20 @@
     [self presentViewController:orderedDishesViewController animated:YES completion:nil];
 }
 
+// 选择了菜品，将菜品加入已点列表，这个地方应该给Server发通知，以便协同点餐中的其他人可以看到我点了这个菜
 - (void)contentViewControllerDelegateDidSelect:(Dish *)dish
 {
-    TempOrderService *tempOrderService = [[TempOrderService alloc] init];
-    [tempOrderService insert:dish];
+//    TempOrderService *tempOrderService = [[TempOrderService alloc] init];
+//    [tempOrderService insert:dish];
+    
+    // send notification to Server
+    // send here
+
+    NSString *msg = @"ADD 2 1";
+    if (_webSocket != nil) {
+        [_webSocket send:msg];
+    }
+
 }
 
 - (void)orderedDishesViewControllerDidBack:(OrderedDishesViewController *)controller
@@ -198,6 +210,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+// 提交菜单
 - (void)orderedDishesViewControllerDidSubmit:(OrderedDishesViewController *)controller
 {
     NSLog(@"submit~~~~~");
@@ -221,6 +234,36 @@
     [_webSocket open];
 }
 
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
+{
+    NSLog(@"Received: \"%@\"", message);
+
+    // 用" "（空格）将收到的消息字符串分割
+    // message有JOIN,LEAVE,ADD,DELETE,SUBMIT,SYNC_DATA
+
+    NSArray *msgArray = [message componentsSeparatedByString:@" "];
+    NSString *operationKey = [msgArray objectAtIndex:0];
+    NSLog(@"operation: %@", operationKey);
+
+    // 这个地方用弹出层提示用户收到的消息
+
+    if ([operationKey isEqualToString:@"JOIN"]) {
+        [self.view makeToast:@"某某某 加入了点餐" duration:0.5 position:@"bottom"];
+    } else if([operationKey isEqualToString:@"LEAVE"]){
+        [self.view makeToast:@"某某某 离开了点餐" duration:0.5 position:@"bottom"];
+    } else if([operationKey isEqualToString:@"DELETE"]) {
+        [self.view makeToast:@"某某某 删除了 balabalabalabala 菜" duration:0.5 position:@"bottom"];
+    } else if([operationKey isEqualToString:@"ADD"]) {
+        [self.view makeToast:@"某某某 点了 balabalabalabala 菜" duration:0.5 position:@"bottom"];
+    } else if([operationKey isEqualToString:@"SUBMIT"]) {
+        [self.view makeToast:@"某某某 提交了订单" duration:0.5 position:@"bottom"];
+    } else if([operationKey isEqualToString:@"SYNC_DATA"]) {
+        // 收到服务器发送过来的已点菜品信息，更新本地临时点菜单数据库
+    }
+
+//    [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
+}
+
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     NSLog(@"Websocket Connected!");
@@ -232,18 +275,6 @@
     _webSocket = nil;
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
-{
-    NSLog(@"Received: \"%@\"", message);
-    
-    // 用" "（空格）将收到的消息字符串分割
-    NSArray *msgArray = [message componentsSeparatedByString:@" "];
-    NSString *operationKey = [msgArray objectAtIndex:0];
-    NSLog(@"operation: %@", operationKey);
-    
-//    [_messages addObject:[[TCMessage alloc] initWithMessage:message fromMe:NO]];
-}
-
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
     NSLog(@"WebSocket closed!");
@@ -252,6 +283,7 @@
 
 @end
 
+// 目前来看，这个东西没什么用，先留着，后边用不到再删
 @implementation TCMessage
 
 @synthesize message = _message;

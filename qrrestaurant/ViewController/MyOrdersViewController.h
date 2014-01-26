@@ -21,4 +21,6 @@
 @property (nonatomic, weak) id <MyOrdersViewControllerDelegate> delegate;
 - (IBAction)back:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *listTable;
+
 @end

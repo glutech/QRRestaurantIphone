@@ -65,7 +65,7 @@
     
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:postURL]];
     
-    [request addPostValue:[NSString stringWithFormat:@"%i", rest_id] forKey:@"r_id"];
+    [request addPostValue:[NSString stringWithFormat:@"%i", (int) rest_id] forKey:@"r_id"];
     
     return request;
 }
@@ -81,7 +81,7 @@
 
 - (NSMutableArray *)getRecommendDishes
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result;
     DishService *dService = [[DishService alloc] init];
     result = [dService getDishesByRecommemd];
     return result;
@@ -89,7 +89,7 @@
 
 - (NSMutableArray *)getDishesByCount
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result;
     DishService *dService = [[DishService alloc] init];
     result = [dService getDishesByOrderedCount];
     return result;
@@ -97,7 +97,7 @@
 
 - (NSMutableArray *)getAllDishes
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSMutableArray *result;
     DishService *dService = [[DishService alloc] init];
     result = [dService findAll];
     return result;

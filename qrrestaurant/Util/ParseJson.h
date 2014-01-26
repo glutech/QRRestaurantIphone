@@ -15,4 +15,6 @@
 
 - (NSMutableArray *)parseRestaurantList:(NSData *)restaurantList;
 
+- (NSMutableArray *)parseOrderList:(NSData *)orderList;
+
 @end
