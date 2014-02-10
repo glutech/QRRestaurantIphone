@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f7e7530-5b0c-43fa-a2cd-4ed00d34b30e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant.xcodeproj/project.xcworkspace/xcuserdata/jokinryou.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/qrrestaurant.xcodeproj/project.xcworkspace/xcuserdata/jokinryou.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant.xcodeproj/xcuserdata/jokinryou.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/qrrestaurant.xcodeproj/xcuserdata/jokinryou.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.m" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/qrrestaurant/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.h" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.m" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Service/OrderService.h" afterPath="$PROJECT_DIR$/qrrestaurant/Service/OrderService.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Service/OrderService.m" afterPath="$PROJECT_DIR$/qrrestaurant/Service/OrderService.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Util/ParseJson.h" afterPath="$PROJECT_DIR$/qrrestaurant/Util/ParseJson.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Util/ParseJson.m" afterPath="$PROJECT_DIR$/qrrestaurant/Util/ParseJson.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/qrrestaurant.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/ViewController/InitailViewController.mm" afterPath="$PROJECT_DIR$/qrrestaurant/ViewController/InitailViewController.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qrrestaurant/Util/VariableDefinition.h" afterPath="$PROJECT_DIR$/qrrestaurant/Util/VariableDefinition.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="qrrestaurant.iws" />
@@ -42,17 +32,6 @@
         <entry file="file://$PROJECT_DIR$/qrrestaurant/Util/ParseJson.m">
           <provider selected="true" editor-type-id="text-editor">
             <state line="73" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1530">
-              <folding>
-                <element signature="e#156#177#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParseJson.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qrrestaurant/Util/ParseJson.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="40" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
@@ -61,7 +40,7 @@
       <file leaf-file-name="OrderService.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qrrestaurant/Service/OrderService.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="63" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="780">
+            <state line="43" column="63" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="825">
               <folding />
             </state>
           </provider>
@@ -70,7 +49,7 @@
       <file leaf-file-name="OrderService.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qrrestaurant/Service/OrderService.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="15" column="21" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
@@ -80,9 +59,7 @@
         <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.m">
           <provider selected="true" editor-type-id="text-editor">
             <state line="78" column="0" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1425">
-              <folding>
-                <element signature="e#175#216#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,10 +67,8 @@
       <file leaf-file-name="HostViewController.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="0" selection-start="5777" selection-end="5777" vertical-scroll-proportion="0.19031142" vertical-offset="2940" max-vertical-offset="4740">
-              <folding>
-                <element signature="e#165#195#0" expanded="true" />
-              </folding>
+            <state line="259" column="52" selection-start="7223" selection-end="7223" vertical-scroll-proportion="0.53181076" vertical-offset="3559" max-vertical-offset="4755">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,10 +76,8 @@
       <file leaf-file-name="MyOrdersViewController.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="49" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0" vertical-offset="887" max-vertical-offset="1890">
-              <folding>
-                <element signature="e#169#203#0" expanded="true" />
-              </folding>
+            <state line="82" column="49" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="1890">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,16 +85,7 @@
       <file leaf-file-name="OrderDishesListViewController.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="50" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyOrdersViewController.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+            <state line="23" column="50" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -145,8 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/qrrestaurant/Util/VariableDefinition.h" />
-        <option value="$PROJECT_DIR$/qrrestaurant/Dao/CustomerDao.m" />
         <option value="$PROJECT_DIR$/qrrestaurant/ViewController/OrderedDishesViewController.m" />
         <option value="$PROJECT_DIR$/qrrestaurant/Service/RestaurantService.m" />
         <option value="$PROJECT_DIR$/qrrestaurant/VO/OrderListItem.m" />
@@ -160,15 +122,17 @@
         <option value="$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.m" />
         <option value="$PROJECT_DIR$/qrrestaurant/Service/OrderService.m" />
         <option value="$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.m" />
+        <option value="$PROJECT_DIR$/qrrestaurant/Util/VariableDefinition.h" />
+        <option value="$PROJECT_DIR$/qrrestaurant/ViewController/InitailViewController.mm" />
         <option value="$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.m" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1366" />
+    <option name="x" value="6" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
-    <option name="height" value="1002" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -196,6 +160,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -350,7 +315,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -417,23 +381,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="22" width="1280" height="1002" extended-state="0" />
+    <frame x="6" y="22" width="1280" height="746" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32599118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19729514" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17422435" sideWeight="0.6733129" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39977974" sideWeight="0.49960223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39977974" sideWeight="0.5003978" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.49960223" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668713" sideWeight="0.49960223" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32599118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -456,75 +420,40 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/qrrestaurant/main.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="260" selection-end="260" vertical-scroll-proportion="0.37717602" vertical-offset="0" max-vertical-offset="517">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrrestaurant/Vendor/asi-http-request/Classes/ASIHTTPRequest.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2023" column="0" selection-start="72380" selection-end="72380" vertical-scroll-proportion="0.8095238" vertical-offset="29877" max-vertical-offset="75120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qrrestaurant/VO/OrderListItem.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="206" selection-end="206" vertical-scroll-proportion="0.17045455" vertical-offset="0" max-vertical-offset="880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/VO/OrderListItem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="40" selection-start="364" selection-end="364" vertical-scroll-proportion="0.2215909" vertical-offset="0" max-vertical-offset="880">
-          <folding />
-        </state>
+        <state line="13" column="40" selection-start="364" selection-end="364" vertical-scroll-proportion="0.2215909" vertical-offset="0" max-vertical-offset="880" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/ContentViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="56" selection-start="787" selection-end="787" vertical-scroll-proportion="0.4152249" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
+        <state line="28" column="56" selection-start="787" selection-end="787" vertical-scroll-proportion="0.4152249" vertical-offset="0" max-vertical-offset="867" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/ContentViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="9" selection-start="6376" selection-end="6376" vertical-scroll-proportion="0.51903117" vertical-offset="2610" max-vertical-offset="5100">
-          <folding />
-        </state>
+        <state line="210" column="9" selection-start="6376" selection-end="6376" vertical-scroll-proportion="0.51903117" vertical-offset="2610" max-vertical-offset="5100" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/RestaurantListViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1845">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1845" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/Util/ParseJson.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="40" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="19" column="40" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/Util/ParseJson.m">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1530">
-          <folding>
-            <element signature="e#156#177#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -552,27 +481,36 @@
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/OrderDishesListViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="0" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1425">
-          <folding>
-            <element signature="e#175#216#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/MyOrdersViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="49" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0" vertical-offset="887" max-vertical-offset="1890">
-          <folding>
-            <element signature="e#169#203#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="624" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrrestaurant/Util/VariableDefinition.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="68" selection-start="159" selection-end="159" vertical-scroll-proportion="0.120192304" vertical-offset="0" max-vertical-offset="624" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/InitailViewController.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="21" selection-start="3575" selection-end="3575" vertical-scroll-proportion="0.90834695" vertical-offset="1080" max-vertical-offset="1830" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qrrestaurant/ViewController/HostViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="0" selection-start="5777" selection-end="5777" vertical-scroll-proportion="0.19031142" vertical-offset="2940" max-vertical-offset="4740">
-          <folding>
-            <element signature="e#165#195#0" expanded="true" />
-          </folding>
+        <state line="259" column="52" selection-start="7223" selection-end="7223" vertical-scroll-proportion="0.53181076" vertical-offset="3559" max-vertical-offset="4755">
+          <folding />
         </state>
       </provider>
     </entry>

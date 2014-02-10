@@ -95,7 +95,8 @@
     NSArray *resultArray = [result componentsSeparatedByString:@"/"];
     NSString *tableIdStr = [resultArray lastObject];
     NSLog(@"got tableId: %@", tableIdStr);
-    
+
+    // 要根据扫描的实际结果来设置不同的值
     hostViewController.rest_id = 1;
     hostViewController.rest_name = @"测试餐厅1";
     hostViewController.hostViewdelegate = self;
